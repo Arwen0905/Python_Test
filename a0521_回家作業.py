@@ -23,4 +23,5 @@ def output(s=6):
                 minNum = alist[-1]
         count+=1
     print('\n字串列為:%s\n最大值為: %d \n最小值為: %d' % (alist,maxNum,minNum))
+    
 output(s)
