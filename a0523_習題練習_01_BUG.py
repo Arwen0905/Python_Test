@@ -2,7 +2,7 @@ import random
 # 以下函式功能為:取隨機10碼，數字不重複並填入list1字串，若遇重複則重新呼叫
 # 變數(n)功能為:嘗試取得內部"重新呼叫"的次數
 # 發生問題:超出預期般的倒數現象( line:19 變數:n )，不理解倒數現象
-n=[0]
+n=0
 def output(x,n):
     for i in range(10):
         num = random.randint(1,20)
@@ -10,7 +10,7 @@ def output(x,n):
             x.append(num)
         else:
             x.clear() # 字串清空
-            n[0] += 1 # 重新呼叫次數+1
+            n += 1 # 重新呼叫次數+1
             print('重新呼叫次數:',x,n)
             output(x,n) # 重新呼叫output
             break # 終止重來

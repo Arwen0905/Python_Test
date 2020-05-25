@@ -16,7 +16,7 @@ def output(x,n):
             break # 終止重來
         print('填入過程',x)
     # n += 1 # 這邊+=1 也沒辦法阻止倒數的現象
-    print('解決遞迴的回朔現象',n,'類別確認:',type(n))
+    print('回朔現象',n,'類別確認:',type(n))
     # x.sort() # 排序
     return x,n
 
