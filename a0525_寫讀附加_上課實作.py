@@ -1,6 +1,7 @@
 def main():
     # 利用open開啟檔案，若檔案不存在，則建立檔案
-    outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','w')
+    # outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','w')
+    outfile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','w')
     outfile.write('Banana\n')
     outfile.write('Grape\n')
     outfile.write('Orange\n')
@@ -9,7 +10,8 @@ def main():
     outfile.close()
 main()
 
-infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+# infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
 print('使用readline() 方法: ')
 line1 = infile.readline()
 line2 = infile.readline()
@@ -29,27 +31,31 @@ print(line4)
 infile.close()
 
 
-infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+# infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
 line1 = infile.read()
 print('使用read() 方法: ')
 print(repr(line1))
 print(line1)
 infile.close()
 
-infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+# infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
 print('\n使用readlines() 方法: ')
 line1 = infile.readlines()
 print(line1)
 infile.close()
 
 def main(): # read()給予指定字元
-    infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
     print('使用 read(3) 方法:')
     line1 = infile.read(3)
     print(line1)
     infile.close()
     
-    infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
     print('使用 read(8) 方法:')
     line2 = infile.read(8)
     print(line2)
@@ -57,7 +63,8 @@ def main(): # read()給予指定字元
 main()
 
 def main(): # 以迴圈讀取(#1資料, #2檔案)所有內容
-    infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
     line1 = infile.readline()
     print('\n利用 for迴圈，依序跑出 readline的資料\n')
     print('>>>',line1)
@@ -66,7 +73,8 @@ def main(): # 以迴圈讀取(#1資料, #2檔案)所有內容
     print('\n利用 while迴圈，依序跑出 readline的資料\n')    
     infile.close()
     
-    infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
+    infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
     line1 = infile.readline()
     while line1 != '':
         print('>>>',line1)
@@ -75,20 +83,23 @@ def main(): # 以迴圈讀取(#1資料, #2檔案)所有內容
 main()
 
 def main(): # 因應下一則範例，演示 w、r 的正規使用方式
-    outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\cities.txt','w')
+    # outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\cities.txt','w')
+    outfile = open('C:\\Users\\user\\Desktop\\Python_main\\cities.txt','w')
     outfile.write('Taipei\n')
     outfile.write('London\n')
     outfile.write('Coventry\n')
     outfile.close()
     
-    infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\cities.txt','r')
+    # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\cities.txt','r')
+    infile = open('C:\\Users\\user\\Desktop\\Python_main\\cities.txt','r')
     data = infile.read()
     print('w: | r: \n',data)
     infile.close()
 main()
 
 def main(): # 呼應上則的技巧: open使用'w+'的方式，可省略建立open'r'
-    outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\cities.txt','w+')
+    # outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\cities.txt','w+')
+    outfile = open('C:\\Users\\user\\Desktop\\Python_main\\cities.txt','w+')
     outfile.write('Taipei\n')
     outfile.write('London\n')
     outfile.write('Coventry\n')
@@ -104,7 +115,8 @@ main()
 
 import pickle
 def main():
-    outbinfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\binaryfile.dat','wb')
+    # outbinfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\binaryfile.dat','wb')
+    outbinfile = open('C:\\Users\\user\\Desktop\\Python_main\\binaryfile.dat','wb')
     print('pickle 的寫讀方法:')
     pickle.dump(123, outbinfile)
     pickle.dump(77.7, outbinfile)
@@ -116,7 +128,8 @@ def main():
     # print('測試',data)
     # 測試 ------------------------------------------------
     outbinfile.close()  
-    outbinfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\binaryfile.dat','rb')
+    # outbinfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\binaryfile.dat','rb')
+    outbinfile = open('C:\\Users\\user\\Desktop\\Python_main\\binaryfile.dat','rb')
     print(pickle.load(outbinfile))
     print(pickle.load(outbinfile))
     print(pickle.load(outbinfile))
@@ -126,6 +139,7 @@ main()
 
 # def main():
 #     outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\score.txt','wb')
+#     outfile = open('C:\\Users\\user\\Desktop\\Python_main\\score.txt','wb')
 #     data = eval(input('(第一次)請輸入整數，輸入 0 結束輸入: '))
 #     while data != 0:
 #         pickle.dump(data, outfile)
