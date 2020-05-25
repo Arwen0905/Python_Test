@@ -108,18 +108,42 @@ print('會計分數最低者為: \n %10s: %3d。'% (name , min))
 infile.close()
 
 # ------------------------------------------------------------------------
-outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\Bname.dat','w+')
-while True:
-    name = input('請輸入以 B開頭的姓名: ')
-    if name == 'end':
-        break
-    elif name[0] == 'B':
-        outfile.write(name)
-        outfile.write(' ')
-        outfile.write('\n')
-    else:
-        continue
-outfile.seek(0)
-data = outfile.read()
-print(data)
-outfile.close()
+# 輸入B開頭的才能寫入 #
+# outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\Bname.dat','w+')
+# Bname = []
+# while True:
+#     name = input('請輸入以 B開頭的姓名: ')
+#     if name == 'end':
+#         break
+#     elif name[0] == 'B':
+#         Bname.append(name)
+#         outfile.write(name)
+#         outfile.write(' ')
+#         outfile.write('\n')
+#     else:
+#         continue
+# outfile.seek(0)
+# data = outfile.read()
+# print(data)
+# outfile.close()
+# print(Bname)
+# ------------------------------------------------------------------------
+# 輸入欲找的字串比對有沒有找到，並將該字串替換為'Bright'，若無找到則顯示沒找到 #
+# str1 = 'I have an appointment with Amy'
+# # findStr = 'Amy'
+# findStr = input('請輸入欲尋找的字串: ')
+# if findStr in str1:
+#     str2 = str1.replace(findStr,'Bright')
+#     print(str2)
+# else:
+#     print('is not found !')
+# ------------------------------------------------------------------------
+str2 = 'I have an appointment with Amy'
+findStr = input('請輸入欲尋找的字串: ')
+if str2.find(findStr) != -1:
+    str3 = str2.replace(findStr,'Bright')
+    print(str3)
+else:
+    print('is not found !')
+
+# ------------------------------------------------------------------------
