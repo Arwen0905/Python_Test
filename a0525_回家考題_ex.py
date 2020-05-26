@@ -75,4 +75,4 @@ num = 10
 print(num)
 for i in range(1,num+1):
     factorial = math.factorial(i)
-    print('%d! ='%i,factorial)
+    print('# %d! = %d'%(i,factorial))
