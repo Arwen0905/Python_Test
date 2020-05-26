@@ -47,6 +47,8 @@
 # infile.close()
 
 # 讀取後，計算平均成績，微積分比重為60%、會計比重為40%，印出來
+# ------------------------------------------------------------------------
+# 有問題，待檢討
 # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\students.dat','r')
 # info = infile.readline()
 # while info != '':
@@ -57,6 +59,7 @@
 #     print('|%10s:%.2f|' % (list1[0],average))
 #     info = infile.readline()
 # infile.close()
+# 有問題的，待檢討
 # ------------------------------------------------------------------------
 # 讀取後，計算出成績最高
 # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\students.dat','r')

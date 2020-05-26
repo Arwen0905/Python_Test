@@ -36,12 +36,19 @@ while switch:
     # b = int(float(input('請輸入一個終止正整數: ')))
     a,b = 1,100
     if a<b:
-        for i in range(a,b,2):
-            i = i+1 % 3
-            ab += i
-        print('[',a,',',b,']',ab)
-        print()
-        switch = False
+        elif (a % 2) == 0:
+            for i in range(a,b+2,2):
+                ab += i
+                print(ab)
+                print('偶數',i)
+                switch = False
+        elif (a % 2) != 0:
+            a = a+1
+            for i in range(a,b+2,2):
+                ab += i
+                print(ab)
+                print('奇數',i)
+            switch = False
     elif a==b:
         print('錯誤! 起始值%2d等於終止值%2d，運算不成立'%(a,b))
         switch = True
@@ -72,7 +79,8 @@ for i in range(num,0,-1):
 import math
 # num = int(float(input('請輸入階乘數字')))
 num = 10
-print(num)
 for i in range(1,num+1):
     factorial = math.factorial(i)
     print('# %d! = %d'%(i,factorial))
+
+# ----------------------------------------------------
