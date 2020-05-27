@@ -28,12 +28,10 @@
 # 097531
 
 # TODO
-# n = eval(input())
-n = 12345
-tmp = 0
-while tmp != 0:
-    tmp += n % 10
-    print(n)
-    print(tmp)
-    tmp//= 10
-print(tmp)
+n = eval(input())
+# n = 12345
+while n != 0:
+    if n == 0:
+        print(n)    
+    print(n % 10,end='')
+    n//= 10
