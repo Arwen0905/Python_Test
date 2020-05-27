@@ -9,7 +9,7 @@ while y<=9:
     print()
     y+=1
 print()
-
+#################### print + end的運用 ###########################
 #02
 # 請撰寫一程式，
 # 讓使用者輸入一個正整數(<100)，
@@ -22,7 +22,7 @@ for i in range(0,num):
     for j in range(0,i+1):
         print(' * ', end='')
     print()
-    
+#################### print() + end的運用 ###########################
 #03
 # 請撰寫一程式，
 # 讓使用者輸入兩個正整數 a、b (a<b)，
@@ -36,19 +36,10 @@ while switch:
     # b = int(float(input('請輸入一個終止正整數: ')))
     a,b = 1,100
     if a<b:
-        elif (a % 2) == 0:
-            for i in range(a,b+2,2):
+        for i in range(a ,b+1):
+            if i % 2 == 0:
                 ab += i
                 print(ab)
-                print('偶數',i)
-                switch = False
-        elif (a % 2) != 0:
-            a = a+1
-            for i in range(a,b+2,2):
-                ab += i
-                print(ab)
-                print('奇數',i)
-            switch = False
     elif a==b:
         print('錯誤! 起始值%2d等於終止值%2d，運算不成立'%(a,b))
         switch = True
@@ -58,7 +49,7 @@ while switch:
     else:
         print('錯誤! 輸入格式錯誤，運算不成立'%(b,a))
         switch = True
-
+#################### 餘數==0，符合零者，即符合其倍數 ###########################
 #04
 # 請撰寫一程式，
 # 讓使用者輸入一個正整數(<100)，
@@ -70,7 +61,7 @@ for i in range(num,0,-1):
     for j in range(i,0,-1):
         print(' * ',end='')
     print()
-
+#################### 反向運算的迴圈，運用步進式 ###########################
 #05
 # 請撰寫一程式，
 # 由使用者輸入一數字，
@@ -82,5 +73,4 @@ num = 10
 for i in range(1,num+1):
     factorial = math.factorial(i)
     print('# %d! = %d'%(i,factorial))
-
-# ----------------------------------------------------
+##################### math.factorial 階乘函式 ###########################

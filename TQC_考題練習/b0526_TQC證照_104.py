@@ -32,11 +32,17 @@
 # Perimeter = 15.71
 # Area = 19.63
 
-radius = 10
+# TODO
+# radius = 10
+radius = eval(input())
 import math
 PI = math.pi
-# radius = eval(input())
 print('Radius = %.2f' % (radius))
 print('Perimeter = %.2f' % (2*PI*radius))
 print('Area = %.2f' % (pow(radius,2)*PI))
                         # pow(a,b)=a^b
+"""
+Radius = _
+Perimeter = _
+Area = _
+"""

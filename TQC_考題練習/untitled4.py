@@ -34,16 +34,16 @@
 
 # TODO
 
-total = eval(input())
+# total = eval(input())
+total = 1
 for i in range(total):
     num = eval(input())
-    tmp = num
-    sum_digit = 0
-    while tmp != 0:
-        sum_digit += tmp%10
-        tmp //= 10
-    print('Sum of all digits of %d is %d'% (num,sum_digit))
-        
+    tmp_num = num
+    sum = 0
+    while tmp_num != 0:
+        sum += tmp_num%10
+        tmp_num//=10
+    print('Sum of all digits of %d is %d'%(num,sum))
 """
 Sum of all digits of _ is _
 """
