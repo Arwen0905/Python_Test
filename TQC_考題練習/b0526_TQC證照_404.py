@@ -30,13 +30,10 @@
 # TODO
 # n = eval(input())
 n = 12345
-nu = 0
 tmp = 0
-while n != 0:
-     nu += n % 10
-     n //= 10
-     print(n)
-
-# while tmp != 0:
-#         sum_digit += tmp%10
-#         tmp //= 10
+while tmp != 0:
+    tmp += n % 10
+    print(n)
+    print(tmp)
+    tmp//= 10
+print(tmp)

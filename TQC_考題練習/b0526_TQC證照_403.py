@@ -34,20 +34,21 @@
 # 21
 
 # TODO
-# a,b = 5,55
-count = 0
-sum = 0
-a = eval(input())
-b = eval(input())
+a,b = 5,55
+count = sum = 0
+# a = eval(input())
+# b = eval(input())
+time = 10
 if a <= b:
     for i in range(a,b+1):
         if i%4==0 or i%9==0:
             sum += i
             count += 1
             print('%-4d'%i,end='')
-            if count == 10:
+            if count % time ==0:
                 print()
-print()          
+if count>0 and count%10 != 0:
+    print()
 print('%d' % count)
 print(sum)
-        
+
