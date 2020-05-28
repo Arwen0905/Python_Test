@@ -32,14 +32,15 @@ for i in range(num_week):
     tmp.append([])
     print('Week %d:'%(i+1))
     for j in range(num_day):
-        tmp[i].append(eval(input('Day %d:' %(j+1))))
+        n = eval(input('Day %d:'%(j+1)))
+        tmp[i].append(n)
 comb=[]
 for i in range(num_week):
     comb.extend(tmp[i])
 avg = sum(comb) / (num_week*num_day)
-print('Average: %d' % avg)
-print('Highest: %d' % max(comb))
-print('Lowest: %d' % min(comb))
+print('Average: %.2f' % avg)
+print('Highest:', max(comb))
+print('Lowest:', min(comb))
 
 """
 Week _:
