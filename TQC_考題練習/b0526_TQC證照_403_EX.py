@@ -34,10 +34,10 @@
 # 21
 
 # TODO
-a,b = 5,55
+# a,b = 5,55
 count = sum = 0
-# a = eval(input())
-# b = eval(input())
+a = eval(input())
+b = eval(input())
 time = 10
 if a <= b:
     for i in range(a,b+1):
