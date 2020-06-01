@@ -1,6 +1,9 @@
+
 # TODO
 
-
+# ans = -1 * 2
+ans = -12 * -3
+print(ans)
 
 
 """

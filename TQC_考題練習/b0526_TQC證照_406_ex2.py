@@ -12,10 +12,9 @@
 #  BMI < 18.5        	under weight
 # 18.5 <= BMI < 25	       normal
 # 25.0 <= BMI < 30	    over weight
-#   30 <= BMI	fat
+#   30 <= BMI	            fat
 # 提示： B M I = 體 重 ( k g ) / 身 高 2 ( m ) ，
 # 輸出浮點數到小數點後第二位。 不需考慮男性或女性標準。
-# ，輸出浮點數到小數點後第二位。 不需考慮男性或女性標準。
 
 # 3. 輸入輸出：
 # 輸入說明
@@ -36,27 +35,26 @@
 # BMI: 34.60
 # State: fat
 # -9999
+
 # TODO
-state=''
-height = eval(input())
-while height != -9999:
-    weight = eval(input())
-     # BMI的計算方式為「體重(公斤)÷身高(公尺)÷身高(公尺)」
-    bmi = weight / (height/100 * height/100)
+while True:
+    height = int(input())
+    if height == -9999:
+        break
+    weight = int(input())
     if weight == -9999:
-         break
-    elif bmi >= 30:
-        state='fat'
-    elif bmi >= 25 and bmi<=29.9 :
-        state='over weight'
-    elif bmi >= 18.5 and bmi<=24.9:
-        state='normal'
-    elif bmi < 18.5:
-        state='under weight'
-    print('BMI: %.2f' % bmi)
-    print('State: %s' % state)
-    height = eval(input())
-    
+        break
+    bmi = weight / (height/100)**2
+    if bmi >= 30:
+       state = 'fat'
+    elif 30 > bmi >=25.0:
+       state = 'over weight'
+    elif 25> bmi >= 18.5:
+       state = 'normal'
+    elif 18.5 > bmi:
+       state = 'under weight'
+    print('BMI: %.2f'%bmi)
+    print('State: %s'%state)
 """
 fat
 over weight
