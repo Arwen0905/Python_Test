@@ -34,24 +34,17 @@
 
 # TODO
 lst = []
-sum = 0
 while True:
     t = eval(input())
     if t == -9999:
         break
     lst.append(t)
-    sum+=t
-lst.sort()
-maxNum = lst[-1]
-minNum = lst[0]
 tup = tuple(lst)
 print(tup)
-print('Length: %d'%len(tup))
-print('Max:',maxNum)
-print('Min:',minNum)
-print('Sum:',sum)
-
-
+print('Length:',len(tup))
+print('Max:',max(tup))
+print('Min:',min(tup))
+print('Sum:',sum(tup))
 
 """
 Length: _

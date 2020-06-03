@@ -35,24 +35,22 @@
 # Combined list after sorting: [-1, 0, 3, 8, 9, 16, 28, 39, 56, 78, 88]
 
 # TODO
-tup1 = ()
-tup2 = ()
-print("Create tuple1:")
+lst1=[]
+lst2=[]
+print('Create tuple1:')
 while True:
-    num = eval(input())
-    if num == -9999:
+    n = eval(input())
+    if n == -9999:
         break
-    tup1 += (num,)
-print("Create tuple2:")
+    lst1.append(n)
+print('Create tuple2:')
 while True:
-    num = eval(input())
-    if num == -9999:
+    s = eval(input())
+    if s == -9999:
         break
-    tup2 += (num,)
-tup_comb = tup1 + tup2
-print('Combined tuple before sorting:',tup_comb)
-print('Combined list after sorting:',sorted(list(tup_comb)))
-
+    lst2.append(s)
+print('Combined tuple before sorting:',tuple(lst1+lst2))
+print('Combined list after sorting:',sorted(lst1+lst2))
 """
 Combined tuple before sorting: _
 Combined list after sorting: _

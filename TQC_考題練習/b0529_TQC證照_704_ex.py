@@ -35,18 +35,15 @@
 # Sum: 46
 
 # TODO
-set1 = set()
-sum = 0
-while True:
+n = eval(input())
+s = set()
+while n != -9999:
+    s.add(n)
     n = eval(input())
-    if n == -9999:
-        break
-    set1.add(n)
-    sum+=n
-print('Length:',len(set1))
-print('Max:',max(set1))
-print('Min:',min(set1))
-print('Sum:',sum)
+print('Length:',len(s))
+print('Max:',max(s))
+print('Min:',min(s))
+print('Sum:',sum(s))
 
 """
 Length: _

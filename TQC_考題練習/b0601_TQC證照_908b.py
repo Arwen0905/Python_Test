@@ -34,6 +34,6 @@ n = 3
 with open(f_name,"r") as file:
     data = sorted(file.read().split()) # 讀取內容，分割後 排序
     for i in sorted(set(data)):
-        # print(i)
+        print(i)
         if data.count(i)==n:
             print(i)
