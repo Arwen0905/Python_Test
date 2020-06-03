@@ -1,0 +1,11 @@
+﻿import csv
+#載入csv套件
+with open(r'C:\.....\ubike_1.csv',
+          'r',encoding = 'utf8') as csvfile:
+#以讀取模式開啟CSV檔並設定給變數 csvfile
+    plots = csv.reader(csvfile, delimiter=',')
+#以reader方法讀取CSV檔案，每一列資料以delimiter設定資料的分隔字元，藉以取出每一個資料
+#並設定給變數plots(為串列物件)
+    for row in plots:	#以讀取的plots資料做為迴圈依據
+        print(row[0]+" "+row[1]+" "+row[3]+" "+row[5]+" "+row[12])
+#每一個欄位(row)以索引取出該欄位資料

@@ -1,0 +1,28 @@
+﻿→readFile = r'C:\.....\health.pdf'
+#設定檔案來源為 readFile 變數
+
+→pdfFiles = [r'C:\.....\out1.pdf',
+            r'C:\.....\out2.pdf',
+            r'C:\.....\out3.pdf']
+#設定要讀取的檔案
+
+→pdfWriter = PyPDF2.PdfFileWriter() 
+#將檔案寫入方法設定給 pdfWriter 變數
+
+→pdfOutput = open(r'C:\.....\comb.pdf','wb')
+#以寫入模式開啟檔案comb.pdf，若不存在則建立，並設定給 pdfOutput 變數(輸出檔案)
+
+→for fileName in pdfFiles:
+#以檔案名稱做為迴圈的執行參數fileName
+      pdfReader = PyPDF2.PdfFileReader(open(fileName,'rb'))
+#以讀取模式開啟檔案並設定給 pdfReader  變數
+      for pageNum in range(pdfReader.numPages):
+#以開啟的檔案頁數作為迴圈執行的次數
+          print(pdfReader.getPage(pageNum))
+#將讀取的頁面印出
+          pdfWriter.addPage(pdfReader.getPage(pageNum))  
+#將讀取的頁面加入
+  pdfWriter.write(pdfOutput)        
+#將所有加入的頁面寫入輸出檔案
+  pdfOutput.close()
+#關閉寫入後的檔案

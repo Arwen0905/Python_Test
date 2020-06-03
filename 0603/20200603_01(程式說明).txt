@@ -1,0 +1,29 @@
+﻿→readFile = r'C:\.....\health.pdf'
+#設定檔案來源為 readFile 變數
+
+→pdfFileReader = PdfFileReader(readFile,strict=False)
+#讀取檔案並設定給 pdfFileReader 變數
+
+→documentInfo = pdfFileReader.getDocumentInfo()
+#取得檔案資訊並設定給 documentInfo 變數
+
+→outFile = r'C:\.....\health_cut.pdf'
+#設定輸出檔案名稱為 outFile 變數
+
+→pdfFileWriter = PdfFileWriter()
+#將檔案寫入方法設定給 pdfFileWriter 變數
+
+→numPages = pdfFileReader.getNumPages()
+#讀取檔案頁數並設定給 numPages 變數
+
+→if numPages > 3:
+#若是頁數大於 3        
+    for index in range(3, numPages):
+#則將頁數帶入迴圈，從3開始到最後的頁數
+        pageObj = pdfFileReader.getPage(index)
+#以迴圈每一圈的index值取得該頁並設定給pageObj變數
+        pdfFileWriter.addPage(pageObj)
+#將取得的頁面加入
+  
+    pdfFileWriter.write(open(outFile, 'wb'))
+#將所有加入的頁面寫入輸出檔案

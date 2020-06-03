@@ -1,0 +1,12 @@
+﻿import math
+#載入數學模組
+with open(r'C:\.....\data5.txt', 'r') as fin: 
+#以讀取模式開啟data5.txt設定給變數fin
+    with open(r'C:\......\data5_w.txt', 'w') as fout:
+#以寫入模式開啟data5.txt設定給變數fout
+        for line in fin:	#以讀取的檔案作為迴圈執行依據，逐一讀取data5.txt的資料
+            data=math.ceil(20/(float(line)*0.001425))
+#執行數學模組的ceil()方法：取得大於或等於該數值得最小整數，運算後設定給data變數
+            print('每股價格:%5.2f, 每日需購股數:%5.0f' %(float(line), data))  
+            fout.write(str(data)+'\n')
+#將data寫入fout
