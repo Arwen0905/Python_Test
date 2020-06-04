@@ -1,0 +1,37 @@
+﻿#每個 Element (元素；標籤)有以下的特性：
+	#tag(標籤)
+	#attributes(屬性)
+	#text(文字)
+---------------------------------------------------------------------------------------
+
+#載入 xml.etree.ElementTree 套件
+import xml.etree.ElementTree as ET
+
+#以parse讀取解析XML檔案
+tree = ET.parse(r'C:\Users\simon\Desktop\Python bigdata\country_data.xml')
+
+#取得根節點
+root = tree.getroot()
+
+#輸出根節點(標籤名)
+print("coutry_data.xml的根節點："+root.tag)
+
+#輸出根節點的屬性與屬性值
+print("根節點標籤裡的屬性和屬性值："+str(root.attrib))
+
+#以迴圈取得子節點標籤、屬性、屬性值
+for child in root:
+    print(child.tag, child.attrib)
+
+#以 text 輸出 country 標籤下的子標籤內容
+print("排名:"+root[0][0].text,"國內生產總值:"+root[0][2].text,)
+
+#以迴圈取得 neighbor 標籤屬性與屬性值
+for neighbor in root.iter('neighbor'):
+    print(neighbor.attrib)
+
+#以 findall() 方法取得根節點下的子節點標籤中符合的標籤取出顯示
+for country in root.findall('country'):
+    rank = country.find('rank').text
+    name = country.get('name')
+    print(name,rank)

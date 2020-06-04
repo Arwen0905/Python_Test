@@ -2,7 +2,7 @@ import pymysql
 db = pymysql.connect(
     "localhost",
     "root",
-    "root",
+    "123456",
     "data_base_one",
     charset="utf8"
     )

@@ -5,6 +5,7 @@ with open('ubike_1.json',encoding='utf8') as fin:
     #執行load()方法將JSON檔案解碼為Python物件，並設定給data變數
     for item in f: #以data作為迴圈執行的依據，即解碼後的資料設為item
         print(item['sno'],item['sna'],item['tot'])
+        # print(item)
         #以索引列印item各欄位資料
 
 # JSON：JavaScritp Object Notation
