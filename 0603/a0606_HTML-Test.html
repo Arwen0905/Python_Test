@@ -19,14 +19,26 @@
         .Level_2{
             margin: 40px;
         }
+        .area{
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            background: #f24;
+            text-align: center;
+            line-height: 30px;
+            padding: 5px;
+            /* margin: 0 0 0 60px; */
+        }
     </style>
 </head>
 <body>
-    <a id="main_div" class="Level_1">
+    <div id="main_div" class="Level_1">
             <a href="a0606_number-3.html" class="toggle">天龍國</a>
-            <div class="Level_2">
+            <div class="Level_2" data-back="round">
                 <a href="a0606_number-3.html" class="toggle">台北</a>
+                <div class="area">萬華區</div>
                 <a href="a0606_number-3.html" class="toggle">新北</a>
+                <div class="area">中和區</div>
                 <a href="a0606_number-3.html" class="toggle">桃園</a>
             </div>
             <div class="Level_2">
@@ -34,12 +46,14 @@
             </div>
             <div class="Level_2">
                 <a href="a0606_number-4.html" class="toggle">彰化</a>
+                <div class="area">彰化市</div>
             </div>
             <div class="Level_2">
                 <a href="a0606_number-5.html" class="toggle">台南</a>
                 <a href="a0606_number-5.html" class="toggle">高雄</a>
+                <div class="area">梓官區</div>
                 <a href="a0606_number-5.html" class="toggle">屏東</a>
             </div>
-        </a>
+        </div>
 </body>
 </html>

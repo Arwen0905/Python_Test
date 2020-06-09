@@ -1,7 +1,7 @@
 from time import sleep
 from selenium import webdriver
 # 於chrome執行，軟體設定
-driver = webdriver.Chrome('chromedriver.exe')
+driver = webdriver.Chrome('../chromedriver.exe')
 # ===================================
 # 清除元素的內容
 # 模擬按鍵輸入
@@ -33,7 +33,7 @@ driver = webdriver.Chrome('chromedriver.exe')
 #! (3):nth-child & nth-of-type
 driver.get('file:///C:/Users/user/Desktop/Python_Test/0603/a0606_HTML-Test.html')
 #! 空一格就是之下，定位概念:於某標籤之下 :第n個元素 ， > 內層的元素
-el = driver.find_element_by_css_selector("body a:nth-child(2)")
+el = driver.find_element_by_css_selector("body .Level_2+ .Level_2+ .Level_2 a")
 #! 黏住，定位概念:第n個黏住元素               #nth-child 不限類型，存在的標籤他都判斷 (不挑食不好掌握)                                
 # el = driver.find_element_by_css_selector("body div.第二層:nth-of-type(3)  a.toggle:nth-child(4)")
                                             #nth-of-type 專一類型，只判斷同類標籤 (專一較好掌握)
