@@ -37,3 +37,6 @@
 
 # TODO
 num_alpha = 26
+total = 0
+for i in range(total):
+    
