@@ -13,8 +13,8 @@ if rq.status_code == requests.codes.ok:
     
     soup = BeautifulSoup(rq.text,'html.parser')
     # rs = soup.select('h3')
-    # rs = soup.findAll('h3')
-    rs = soup.findAll('h3 > a[href^="/url"]')
+    rs = soup.findAll('h3>a')
+    # rs = soup.findAll('h3 > a[href^="/url"]')
     # print(rs)
     for row in rs:
         print(row.text)
