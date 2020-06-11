@@ -17,7 +17,7 @@ first_result_elem = driver.find_element_by_css_selector("td.result_text > a:nth-
 first_result_elem.click()
 time.sleep(3)
 rating_elem = driver.find_element_by_css_selector("strong span")
-rating =float(rating_elem.text)
+rating=float(rating_elem.text)
 # cast_elem = driver.find_elements_by_css_selector(".itemprop")
 # cast_list = [cast.text for cast in cast_elem]
 cast_elem = driver.find_element_by_css_selector(".cast_list").text
