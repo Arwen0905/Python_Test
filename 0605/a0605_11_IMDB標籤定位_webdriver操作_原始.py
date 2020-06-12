@@ -16,6 +16,6 @@ time.sleep(3)
 rating_elem = driver.find_element_by_css_selector("strong span")
 rating =float(rating_elem.text)
 cast_elem = driver.find_element_by_css_selector("#titleCast")
-# cast_list = [cast.text for cast in cast_elem]
-# driver.close()
+cast_list = [cast.text for cast in cast_elem]
+driver.close()
 print(rating, cast_elem.text)
