@@ -38,32 +38,17 @@ elif 12<=month<=2:
     print('冬天')
 
 # (5):請設計一程式，計算級數1+2+4+7+11...+106的過程和結果。
-n = 0
 ans = 1
-for i in range(1,16):
-    print('%3d + %3d = '%(n,ans),end='')
-    n+=ans
-    print('%3d'%n)
-    ans+=i
-
-# (5)-2:請設計一程式，計算級數1+2+4+7+11...+106的過程和結果。
-count = 1
-i = 0
-ans = 0
-while count<=106:
-    print(ans,'+',count,'=',end='')
-    ans += count
+for i in range(1,107):
     print(ans)
-    i += 1
-    count+=i
-
-
+    ans += i
+ 
 # (6):請設計一程式，讓使用者輸入英文句子，
 # 程式會以空格來切割句子。切成多個單字並輸出
 en = str(input('輸入英文句子，間隔以空格表示: '))
 en = en.split(' ')
 for i in en:
-    print('切割的單字為:',i)
+    print('切割的單字為: ',i)
 
 # (7):請設計一程式，讓使用者輸入姓名與電話，，當要結束輸入通訊資料時，
 # 可以輸入「finish」結束。接著可以查詢通訊錄姓名，程式會回應其通訊電話

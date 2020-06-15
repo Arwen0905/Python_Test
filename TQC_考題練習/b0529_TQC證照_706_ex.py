@@ -36,7 +36,10 @@
 # False
 
 # TODO
-num_alpha = 26
-total = 0
+total = int(input())
 for i in range(total):
-    
+    s = str(input()).upper()
+    set1 = set(s)
+    set1.remove(' ')
+    print(len(set1) == 26)
+
