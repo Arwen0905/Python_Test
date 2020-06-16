@@ -41,6 +41,24 @@
 # ※要看圖片※
 # 下圖中的 粉紅色點 為 空格
 #TODO
+def compute():
+    x = {}
+    while True:
+        s = str(input('Key: '))
+        if s == 'end':
+            return x
+        v = str(input('Value: '))
+        if v == 'end':
+            return x
+        x[s] = v
 print('Create dict1:')
+dict1=compute()
+print('Create dict2:')
+dict2=compute()
+dict3 = dict1.copy()
+dict3.update(dict2)
+dict3 = dict(sorted(dict3.items()))
+for i in dict3:
+    print('%s: %s'%(i,dict3[i]))
 
 ###### 輸出字串、soered()的使用、輸出時的字典指定觀念 ######

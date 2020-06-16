@@ -16,13 +16,3 @@ print('=== 測試lambda ===')
 print(sorted(dic3.items(),key=lambda item:item[0]))
 print(sorted(dic3.items(),key=lambda item:item[1]))
 
-dic3_sort = sorted(dic3.keys())
-print(dic3_sort,'<<< 只剩數字')
-dic3_sort = sorted(dic3.items())
-print(type(dic3_sort))
-print(dic3_sort,'<<< 轉成list')
-
-
-# dic3 = sorted(dic3)
-# for i in dic3:
-#     print(i,dic3[i])
