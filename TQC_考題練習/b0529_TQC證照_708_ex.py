@@ -26,9 +26,7 @@ dic3.update(dic2)
 dic3_sort = sorted(dic3)
 
 for i in dic3_sort:
-    print(i,dic3[i])
-
-
+    print('%s: %s'%(i,dic3[i]))
 
 # # dic3=dict(dic,**dic2)
 # # dic3=(**dic,**dic2)
