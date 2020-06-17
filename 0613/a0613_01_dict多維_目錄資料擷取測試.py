@@ -100,7 +100,7 @@ hello = map(str,n1+n2+n3+n4)
 zip_deda = zip(user,age,occupation,hello) # zip就像包裝起來
 print(*zip_deda,'<< 解壓') #擁有 * 解壓屬性
 for i in zip_deda:
-    print(i)
+    print(i,'<< 迴圈bug，註解上行才行運行')
 # print(type(zip_deda),'<型態>',zip_deda,'\n')
 # print(*zip_deda,'<< 判斷:上面使用過，就無法呈現的BUG')
 
@@ -115,7 +115,7 @@ for i in zip_deda:
 # print(list(map(f,lst2)),' << 轉串列') # 同上，只是轉成串列輸出
 # print([f(x) for x in lst2]) # comprehensive 簡短語法
 # print([f(x) for x in lst1+lst2]) #自行想的多組資料處理法
-
+# ※自行想的功能是 呼叫f(裝入x參數) 並從 lst1+lst2 相加的串列進行運算
 
 # print('=== 運用*map型態處理多組資料 ===')
 # 注意! map處理的標準，是以最短資料列長度為主

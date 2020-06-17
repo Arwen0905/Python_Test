@@ -2,9 +2,9 @@ from bs4 import BeautifulSoup
 import requests
 from time import sleep
 
-google_url = 'https://google.com'
+google_url = 'https://www.google.com.tw/search'
 my_params = {"q":"東踏取蜜"}
-rq = requests.get('https://www.google.com.tw/search', params=my_params)
+rq = requests.get(google_url, params=my_params)
 sleep(1)
 if rq.status_code == requests.codes.ok:
     soup = BeautifulSoup(rq.text,'html.parser')

@@ -1,28 +1,29 @@
-
-while True:
-    s = str(input())
-    if len(s)==6:
-        print('|%-10s|'%s)
-        print('|%s|'%s.center(10))
-        print('|%10s|'%s)
-        break
-
-
-# 請撰寫一程式，要求使用者輸入一個長度為6的字串，
-# 將此字串分別置於10個欄位的寬度的左邊、中間和右邊，
-# 並顯示這三個結果，左右皆以直線 |（Vertical bar）作為邊界。
+# 2. 設計說明：
+# 請撰寫一程式，讓使用者輸入一字串和一字元，
+# 並將此字串及字元作為參數傳遞給名為compute()的函式，
+# 此函式將回傳該字串中指定字元出現的次數，接著再輸出結果。
 
 # 3. 輸入輸出：
 # 輸入說明
-# 一個長度為6的字串
+# 一個字串和一個字元
 
 # 輸出說明
-# 格式化輸出
+# 字串中指定字元出現的次數
 
 # 輸入輸出範例
 # 範例輸入
-# python
+# Our country is beautiful
+# u
 # 範例輸出
-# |python    |
-# |  python  |
-# |    python|
+# u occurs 4 time(s)
+# x = str(input())
+# x = x.split()
+# x = x.slice()
+# x = x.split(' ')
+x=[i for i in range(10)]
+print(x)
+x[len(x):] = [999,888]
+print(x)
+# def compute(x,y):
+    # x.split('')
+
