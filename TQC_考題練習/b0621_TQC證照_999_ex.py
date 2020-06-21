@@ -278,6 +278,68 @@
 # =============================================
 # 第五類
 # 2=============================================
+# x,y=eval(input()),eval(input())
+# compute=lambda x,y:x*y
+# print(compute(x,y))
+# 4=============================================
+# a,b=eval(input()),eval(input())
+# compute=lambda a,b:a**b
+# print(compute(a,b))
+# 10=============================================
 
 # =============================================
-
+# 第六類
+# 2=============================================
+# ans=0
+# for i in range(5):
+#     n = input().upper()
+#     if n == 'J':
+#         ans+=11
+#     elif n == 'Q':
+#         ans+=12
+#     elif n == 'K':
+#         ans+=13
+#     elif n == 'A':
+#         ans+=1
+#     else:
+#         ans+=eval(n)
+# print(ans)
+# 4=============================================
+# lst=[]
+# tem=[0]*10
+# for i in range(10):
+#     n = eval(input())
+#     lst.append(n)
+#     tem[lst.index(n)] += 1
+# print(lst[tem.index(max(tem))])
+# print(max(tem))
+# =============================================
+# 第七類
+# 2=============================================
+# tup1,tup2=tuple(),tuple()
+# print('Create tuple1:')
+# while True:
+#     n = eval(input())
+#     if n == -9999:
+#         break
+#     tup1+=n,
+# print('Create tuple2:')
+# while True:
+#     n = eval(input())
+#     if n == -9999:
+#         break
+#     tup2+=n,
+# print('Combined tuple before sorting:',(tup1+tup2))
+# print('Combined list after sorting:',sorted(list(tup1+tup2)))
+# 4=============================================
+# set1 = set()
+# while True:
+#     n = eval(input())
+#     if n == -9999:
+#         break
+#     set1.add(n)
+# print('Length:',len(set1))
+# print('Max:',max(set1))
+# print('Min:',min(set1))
+# print('Sum:',sum(set1))
+# =============================================
