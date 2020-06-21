@@ -27,7 +27,8 @@
 # programming
 
 # TODO
-f_name = input() # 輸入檔名
+f_name = 'read_908.txt'
+# f_name = input() # 輸入檔名
 n = int(input()) # 輸入次數
 word_dict = dict()
 with open(f_name,"r") as file: #簡短讀寫語句
@@ -35,22 +36,26 @@ with open(f_name,"r") as file: #簡短讀寫語句
         word = line.strip('\n').split(' ') # 去除換行(\n)並以空格分割word
         # ※下面開始 進行word轉成字典(鍵值對)了
         for x in word:
+            print(x,'<<如果沒有判斷錯的話..')
         # 取出字典中所有key及 value值，
         # 設定給 word_list.items():傳回字典中所有key、value
             if x in word_dict:
-                word_dict[x] += 1
+                word_dict[x] += 1 #如果已經有了，就再+1
             else:
-                word_dict[x] = 1
+                word_dict[x] = 1 #如果第一次進來，該[索引名稱]就設定1
+# 以 x 帶入迴圈中，若符合存在於 word 則將 word_dict[x] 加1
 print('===================================')
-print(word_dict,'<<< word_dict')
+print(word_dict,'<<< 字典:次數') #'is': 3
 print('===================================')
 word_list = word_dict.items()
 
-print(word_list,'<<< word_list')
+print(word_list,'<<< word_list') # dict_items([('What', 1)])
+print(type(word_list),'<<類別') # <class 'dict_items'>
 
-wordQTY = [x for (x,y) in word_list if y == n]
+# 
+wordQTY = [x for (x,y) in word_list if y == n] #從[('What', 1)]後者變數做比對，是否等於輸入次數，是就回傳左邊變數
 # 利用迴圈以輸入值作為終止值並取出list中的字詞 wordQTY
-# 以 x 帶入迴圈中，若符合存在於 word 則將 word_dict[x] 加1
+print(wordQTY,'<< QTY')
 sortedword = sorted(wordQTY)
 for x in sortedword:
     print(x)

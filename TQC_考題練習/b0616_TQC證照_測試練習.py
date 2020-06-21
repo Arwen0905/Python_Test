@@ -16,14 +16,21 @@
 # u
 # 範例輸出
 # u occurs 4 time(s)
-# x = str(input())
+# x = str(input()) 
 # x = x.split()
 # x = x.slice()
 # x = x.split(' ')
+import pandas as pd
 x=[i for i in range(10)]
 print(x)
-x[len(x):] = [999,888]
+y = x
+y = pd.Series(y)
+x[len(x):] = [777]
 print(x)
+y[len(y)]=[x for x in range(3)]
+print(y)
+
+
 # def compute(x,y):
     # x.split('')
 

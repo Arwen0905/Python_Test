@@ -49,8 +49,8 @@ infile.close()
 def main(): # read()給予指定字元
     # infile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\fruits.txt','r')
     infile = open('C:\\Users\\user\\Desktop\\Python_main\\fruits.txt','r')
-    print('使用 read(3) 方法:')
-    line1 = infile.read(3)
+    print('使用 read(7) 方法:')
+    line1 = infile.read(7)
     print(line1)
     infile.close()
     
@@ -138,7 +138,6 @@ def main():
 main()
 
 # def main():
-#     outfile = open('C:\\Users\\ASUS\\Desktop\\Python_main\\score.txt','wb')
 #     outfile = open('C:\\Users\\user\\Desktop\\Python_main\\score.txt','wb')
 #     data = eval(input('(第一次)請輸入整數，輸入 0 結束輸入: '))
 #     while data != 0:

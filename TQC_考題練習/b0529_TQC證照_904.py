@@ -40,20 +40,18 @@
 
 # TODO
 data = []
-with open("read.txt","r") as file: # 檔案開啟
+with open("read_904.txt","r") as file: # 檔案開啟
     for i_line in file: # 設定迴圈
-        print(i_line,'<<< 原始狀態')
+        print(i_line)
 
         tmp = i_line.strip('\n').split(' ') # 拆解結構，移除無用符號與空白
         tmp = [tmp[0],eval(tmp[1]),eval(tmp[2])] # 填入data串列
         data.append(tmp)
-print(data,'改造過後，變成二維串列')
+
 name = [data[x][0] for x in range(len(data))]
 height = [data[x][1] for x in range(len(data))]
 weight = [data[x][2] for x in range(len(data))]
-print(name,'<<<<< 取得所有人')
-print(height,'<<<<< 取得所有身高')
-print(weight,'<<<<< 取得所有體重')
+
 print("Average height: %.2f"% (sum(height)/len(height))) # 總數除以個數=平均身高
 print("Average weight: %.2f"% (sum(weight)/len(weight))) # 總數除以個數=平均體重
 
@@ -63,9 +61,3 @@ print("The tallest is %s with %.2fcm"% (name[height.index(max_h)],max_h))
 print("The heaviest is %s with %.2fkg"% (name[weight.index(max_w)],max_w))
 
 
-"""
-Average height: _
-Average weight: _
-The tallest is _ with _cm
-The heaviest is _ with _kg
-"""

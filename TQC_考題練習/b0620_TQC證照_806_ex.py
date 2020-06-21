@@ -22,9 +22,14 @@
 # u occurs 4 time(s)
 
 # TODO
-def compute(t,s):
-    return t.count(s)
-t = input()
-s = input()
-print(s,'occurs',compute(t,s),'time(s)')
+def compute(s,search):
+    count = 0
+    for i in s:
+        if search == i:
+            count+=1
+    return count
 
+s = str(input())
+s = list(s)
+search = str(input())
+print('%s occurs %d time(s)'%(search,compute(s,search)))

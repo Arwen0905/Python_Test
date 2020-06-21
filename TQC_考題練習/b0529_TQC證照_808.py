@@ -26,23 +26,19 @@
 
 # TODO
 s = input() #輸入
-isSSN = (len(s) == 11) # 取布林值，於第三行的if做判斷是否進入
-# ↑ 取得數字長度的布林值(True/False)對應下方print('輸出')
-if isSSN: #允許才進入
-    for i in range(len(s)): #進迴圈，以字串長度設定
-        if i==3 or i ==6: # 當迴圈進入到預計為'-'的位置時進入檢測
-            if s[i] != '-': # 檢查第3及第6位置字碼是的元素否為'-'
+isSSN = (len(s) == 11) # 取布林值，判斷長度是否符合
+# 如果長度就不符合了，則反應最下方的else
+if isSSN: # 長度符合才能進入以下判斷
+    for i in range(len(s)): # 進迴圈，以字串長度做[索引值]設定
+        if i==3 or i ==6: # 當迴圈進行到預估為'-'符號的的位置時再進入檢測
+            if s[i] != '-': # 檢查第3及第6的字碼位置是否為'-'
                 isSSN = False # 如果該位置不是'-'就給false
                 break # 跳出
-        elif not s[i].isdigit(): # 待老師檢視isdigit()方法
+        elif not s[i].isdigit(): # 這看起來像是比對數字型態的方法?
             isSSN = False
             break
-if isSSN: # 印出的方式是以布林值為判斷，若True則第一行，否則二行
+if isSSN: # 印出的方式為布林值判斷
     print('Valid SSN')
 else:
-     print('Invalid SSN')   
+    print('Invalid SSN')   
 
-"""
-Valid SSN
-Invalid SSN
-"""

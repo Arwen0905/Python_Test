@@ -38,14 +38,13 @@
 # import pickle
 
 # TODO
-f_name = "read.dat"
+f_name = "read_910.dat"
 c_male = c_female = 0
-with open(f_name, "rb") as file:
+with open(f_name, "r",encoding="utf8") as file:
     for line in file:
-        row = line.decode('utf-8')
-        print(row)
-        row = row.strip('\n').split(' ')
-        
+        print(line)
+        row = line.strip('\n').split(' ')
+        # print(row) # ['505', '陳小凱', '1', '日文']
         if row[2] == '1':
             c_male += 1
         elif row[2] == '0':

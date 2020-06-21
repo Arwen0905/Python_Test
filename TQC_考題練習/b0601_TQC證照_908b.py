@@ -27,13 +27,17 @@
 # programming
 
 # TODO
-f_name = 'read.txt'
+f_name = 'read_908.txt'
 n = 3
 # f_name = input() # 輸入檔名
 # n = int(input()) # 輸入次數
 with open(f_name,"r") as file:
     data = sorted(file.read().split()) # 讀取內容，分割後 排序
+    # print(data.count(3)) #串列可以直接挖到"該值數量"
+    # print(sorted(set(data))) #不重複且排序的方式進迴圈"挖掘單字"，注意不是實際比對值，比對值是在判斷區!
     for i in sorted(set(data)):
-        print(i)
+        # print(i)
+        # print(data.count('a')) # 3次，count方法可以搜尋該(字元)於資料出現次數
+        # print(data,'<< 注意哦，實際資料是沒變的，因為要取count(值)做比對')
         if data.count(i)==n:
             print(i)
