@@ -261,20 +261,17 @@
 #     kg = eval(input())
 #     if kg == -9999:
 #         break
-#     ans = kg/(cm/100)**2
-#     # ans = kg / (cm/100 * cm/100)
-#     if ans < 18.5:
-#         print('BMI: %.2f'%ans)
-#         print('State: under weight')
-#     elif 18.5<= ans <25:
-#         print('BMI: %.2f'%ans)
-#         print('State: normal')
-#     elif 25<= ans <30:
-#         print('BMI: %.2f'%ans)
-#         print('State: over weight')
-#     elif ans >= 30:
-#         print('BMI: %.2f'%ans)
-#         print('State: fat')
+#     bmi = kg/(cm/100)**2
+#     if bmi <18.5:
+#         state="under weight"
+#     elif 18.5 <= bmi < 25:
+#         state="normal"
+#     elif 25.0 <= bmi < 30:
+#         state="over weight"
+#     elif 30 <= bmi:
+#         state="fat"
+#     print('BMI: %.2f'%bmi)
+#     print('State:',state)
 # =============================================
 # 第五類
 # 2=============================================
@@ -286,7 +283,15 @@
 # compute=lambda a,b:a**b
 # print(compute(a,b))
 # 10=============================================
-
+n = eval(input())
+def compute(x):
+    ans,n1,n2=0,0,1
+    for i in range(n):
+        ans = ans+n1
+        print(ans,end=' ')
+        n1 = n2
+        n2 = ans
+compute(n)
 # =============================================
 # 第六類
 # 2=============================================
@@ -342,4 +347,41 @@
 # print('Max:',max(set1))
 # print('Min:',min(set1))
 # print('Sum:',sum(set1))
+# =============================================
+# 第八類
+# 2=============================================
+# s = input()
+# lst = list(s)
+# total = 0
+# for i in lst:
+#     print('ASCII code for \'%s\' is %d'%(i,ord(i)))
+#     total+=ord(i)
+# print(total)
+# 4=============================================
+# s = input()
+# print(s.upper())
+# print(s.title())
+# =============================================
+# 第九類
+# 2=============================================
+# with open('read_902.txt') as f:
+#     ans = f.readlines()
+#     ans = ans[0].split()
+#     ans = [eval(i)for i in ans]
+#     print(sum(ans))
+# 4=============================================
+# lst=[]
+# with open('read_904.txt','r') as f:
+#     f = f.readlines()
+#     for i in f:
+#         print(i)
+#         i = i.split()
+#         lst.append(i)
+# name=[lst[x][0]for x in range(3)]
+# height=[eval(lst[x][1])for x in range(3)]
+# weight=[eval(lst[x][2])for x in range(3)]
+# print('Average height: %.2f'%(sum(height)/3))
+# print('Average weight: %.2f'%(sum(weight)/3))
+# print('The tallest is %s with %.2fcm'%(name[height.index(max(height))],max(height)))
+# print('The heaviest is %s with %.2fkg'%(name[weight.index(max(weight))],max(weight)))
 # =============================================
