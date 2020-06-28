@@ -1,6 +1,6 @@
-import matplotlib.pyplot as plt
+import matplotlib.font_manager as plt
 # 設定字型、樣式、大小
-font = {'family' : 'SimHei','weight' : 'bold','size'  : '16'}
+font = {'family' : '微軟正黑體','weight' : 'bold','size'  : '16'}
 # 設定python繪圖系統的字型項目
 plt.rc('font', **font) 
 # 解決坐標軸的負數的負號顯示問題↓

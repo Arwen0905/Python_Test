@@ -41,3 +41,5 @@ for i in range(1,n+1):
     for k in range(1,n+1):
         print('%-2d* %-2d= %-4d'%(k,i,k*i),end='')
     print()
+
+

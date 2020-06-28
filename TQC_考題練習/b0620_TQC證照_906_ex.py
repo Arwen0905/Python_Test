@@ -1,7 +1,8 @@
-f_name = input()
+# f_name = input()
 str_old = input()
 str_new = input()
-with open(f_name,'r',encoding='utf-8') as f:
+# with open(f_name,'r',encoding='utf-8') as f:
+with open('..\TQC_考題練習\data.txt','r',encoding='utf-8') as f:
     data = f.read() #小出包
     print("=== Before the replacement")
     print(data)
