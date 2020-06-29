@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import json
+import bokeh
 
 file1 = "./data/foodtracer_nightmarket_market.json"
 file2 = "./data臺北市10701_10904搶奪點位資訊.csv"
@@ -80,7 +81,7 @@ fig = plot.figure(dpi=128, figsize=(10,6)) #繪圖畫面設定
 df1[["本行買入價格","進場時機推測"]].plot(kind="line") # plot圖形化
 df2["本行賣出價格"].plot(kind="line",color="r") # plot圖形化
 plot.xlabel("日期",size=16) # 不會影響其它字型設定
-plot.ylabel("😂",fontname="symbola",size=36,rotation=45) # 不會影響其它字型設定
+plot.ylabel("😂",fontname="symbola",size=36,rotation=0,ha="right") # 不會影響其它字型設定
 # plot.fill_between(df, df2, facecolor="blue", alpha=0.5) #線條間距填色
 plot.gca().set_facecolor("black") #黑色背景
 fig.autofmt_xdate() #執行
