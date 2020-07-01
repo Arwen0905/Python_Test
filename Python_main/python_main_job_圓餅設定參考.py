@@ -10,7 +10,7 @@ from matplotlib.font_manager import FontProperties
 
 # 指定使用字型和大小
 
-myFont = FontProperties(fname='D:/Programs/Lib/site-packages/matplotlib/mpl-data/fonts/ttf/msjh.ttc', size=14)
+myFont = FontProperties(fname='C:\ProgramData\Anaconda3\Lib/site-packages/matplotlib/mpl-data/fonts/ttf/SimSun.ttc', size=14)
 
 
 
