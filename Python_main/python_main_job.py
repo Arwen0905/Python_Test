@@ -3,13 +3,13 @@ import numpy as np
 import json
 import matplotlib.pyplot as plt
 plt.rcParams["font.family"] = ['Microsoft JhengHei']
-    
+
 file1 = '失業率－婚姻狀況別.csv'
 file1 = '年齡組別失業率.csv'
 file1 = '人力資源調查失業率.csv'
 with open(file1,encoding="utf-8") as f:
-    df1 = df = pd.read_csv(f).dropna() #處理掉空白列，三思慎用
-    # df1 = df = pd.read_csv(f) #刪除空白列，使用index序列時會出包
+    df1 = df = pd.read_csv(f).dropna() #刪除空白列，使用index序列可能會出包
+    # df1 = df = pd.read_csv(f) 
     df = df.rename(columns={"項目別_Iterm":"年份"}) #重新命名
     df["年份"] = df["年份"].str.replace("M","/") #修改結構
     # for i in df: print(i) #檢查類別
@@ -34,7 +34,7 @@ with open(file1,encoding="utf-8") as f:
         
     # 【全年齡平均】組裝pd
     df1_average = pd.DataFrame(df1_average)
-    df1_average = df1_average.rename(columns={0:"總平均值"}) #重新命名
+    df1_average = df1_average.rename(columns={0:"總平均值"}) #欄位名稱命名
     df1_average.index = df["年份"]
     print(df1_average)
 
@@ -87,14 +87,14 @@ with open(file1,encoding="utf-8") as f:
     # explode[-1]=0.45 #自定義
     
     # # 圓餅圖設定
-    # # pie_color = ["#9B59B6","#E74C3C","#3498DB","#1ABC9C","#2ECC71","#F1C40F",
-    # #              "#DC7633","#DC7633","#DC7633","#DC7633","#FF2244"]
-    # # plt.figure(figsize=(16,10)) #圓餅圖尺寸
-    # # plt.pie(df2_sum,labels=df2_columns, autopct="%1.1f%%", #圓餅圖設定
-    # #         shadow=True,pctdistance=0.75,explode=explode,colors=pie_color)
-    # # plt.axis("equal")
-    # # plt.title("失業率 - 各年齡別",x=0.45,y=0.98,size=20) #標題
-    # # plt.legend(loc="lower left",fontsize=14) #小窗位置
+    # pie_color = ["#9B59B6","#E74C3C","#3498DB","#1ABC9C","#2ECC71","#F1C40F",
+    #               "#DC7633","#DC7633","#DC7633","#DC7633","#FF2244"]
+    # plt.figure(figsize=(16,10)) #圓餅圖尺寸
+    # plt.pie(df2_sum,labels=df2_columns, autopct="%1.1f%%", #圓餅圖設定
+    #         shadow=True,pctdistance=0.75,explode=explode,colors=pie_color)
+    # plt.axis("equal")
+    # plt.title("失業率 - 各年齡別",x=0.45,y=0.98,size=20) #標題
+    # plt.legend(loc="lower left",fontsize=14) #小窗位置
     
     # # ===================================================================================
     # # plt.savefig(r'C:\Users\user\Desktop\Python_Test\Python_main\output\失業率-年齡別圓餅圖.png',
