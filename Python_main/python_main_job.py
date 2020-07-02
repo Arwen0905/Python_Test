@@ -18,25 +18,27 @@ with open(file1,encoding="utf-8") as f:
     # df = df.fillna({'總計_Total':777}) #針對某位置處理，若空則替換
     # print(df["總計_Total"][546])
     
-    # 小程式:計算每列全年齡加總，並取得平均值
+    # 小程式:計算每一列全年齡加總，並取得平均值
     df1_average = []
-    df_col_tem = [i for i in df]
+    df_col_tem = [i for i in df] #裝填列表名稱
+
     for i in range(len(df["年份"])):
         ans=0
-        for index,col in enumerate(df_col_tem):
-            if 3< index <15 and i!=546: #總是從第三筆開始
-                print(df[col],'<<<<<<<<<<<<')
+        if i == 546:
+            continue
+        for index,colName in enumerate(df_col_tem):
+            if 3< index <15 and i!=546: #只取年齡列表，並避開546列有空白
                 # print(df[col][i]) #設計過程檢視用
-                if df[col][i] == "-": #避開不正確值
+                if df[colName][i] == "-" or i == 546: #避開不正確值
                     continue
-                ans+=float(df[col][i]) #由第一維迴圈取值；第二維換圈的反巢狀取值
-        df1_average.append(ans/(len(df_col_tem)-2))
-        
+                ans+=float(df[colName][i]) #由第一維迴圈取值；第二維換圈的反巢狀取值
+        # print(ans)
+        df1_average.append(ans/11)
     # 【全年齡平均】組裝pd
     df1_average = pd.DataFrame(df1_average)
     df1_average = df1_average.rename(columns={0:"總平均值"}) #欄位名稱命名
     df1_average.index = df["年份"]
-    print(df1_average)
+    print(df1_average.tail(10))
 
     # #【男女別】------------------------------------------------------
     # df1 = df1[["男_Male","女_Female"]] #取需要資料
@@ -56,7 +58,7 @@ with open(file1,encoding="utf-8") as f:
     
     # # ===================================================================================
     # # plt.savefig(r'C:\Users\user\Desktop\Python_Test\Python_main\output\失業率-男女別走勢.png',
-    # #         bbox_inches="tight",transparent=True,dpi=300) #本組提供大圖
+    # #         bbox_inches="tight",transparent=True,dpi=300) #去背大圖
 
 
     # print("年齡別 圓餅圖"+'='*60)
@@ -80,7 +82,7 @@ with open(file1,encoding="utf-8") as f:
     # # print(df2_columns) #欄位名稱
     
     # df2_sum = df2.sum() #年齡層的人數總和
-    # # print(df2_sum) #總和
+    # # print(df2_sum) #總和A
     
     # explode = [0]*(len(df2_columns)) #爆炸圖結構製作
     # explode[1]=0.15 #自定義
@@ -97,5 +99,5 @@ with open(file1,encoding="utf-8") as f:
     # plt.legend(loc="lower left",fontsize=14) #小窗位置
     
     # # ===================================================================================
-    # # plt.savefig(r'C:\Users\user\Desktop\Python_Test\Python_main\output\失業率-年齡別圓餅圖.png',
-    #         # bbox_inches="tight",transparent=True,dpi=300) #本組提供大圖
+    # plt.savefig(r'C:\Users\user\Desktop\Python_Test\Python_main\output\失業率-年齡別圓餅圖.png',
+    #         bbox_inches="tight",transparent=True,dpi=300) #去背大圖
