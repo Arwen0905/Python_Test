@@ -80,16 +80,16 @@ print(df1.head())
 print('='*30)
 print(df2.head())
 # 圖形化設定
-fig = plt.figure(dpi=128, figsize=(6,6)) #繪圖畫面設定
-df1[["本行買入價格","進場時機推測"]].plot(kind="line") # plot圖形化
+# fig = plt.figure(dpi=128, figsize=(6,6)) #繪圖畫面設定
+# df1[["本行買入價格","進場時機推測"]].plot(kind="line") # plot圖形化
 df2["本行賣出價格"].plot(kind="line",color="r") # plot圖形化
-plt.xlabel("日期",size=16) # 不會影響其它字型設定
-plt.ylabel("😂",fontname="symbola",size=36,rotation=0,ha="right") # 不會影響其它字型設定
-# plt.fill_between(df, df2, facecolor="blue", alpha=0.5) #線條間距填色
-plt.gca().set_facecolor("black") #黑色背景
-fig.autofmt_xdate() #執行
-print('='*60)
-print(df1.columns)
-print(df1.index)
-plt.show()
+# plt.xlabel("日期",size=16) # 不會影響其它字型設定
+# plt.ylabel("😂",fontname="symbola",size=36,rotation=0,ha="right") # 不會影響其它字型設定
+# # plt.fill_between(df, df2, facecolor="blue", alpha=0.5) #線條間距填色
+# plt.gca().set_facecolor("black") #黑色背景
+# fig.autofmt_xdate() #執行
+# print('='*60)
+# print(df1.columns)
+# print(df1.index)
+# plt.show()
 
