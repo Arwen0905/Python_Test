@@ -76,9 +76,11 @@ print(df.index[0],'<< 一般') #2020/06/24 << 一般日期顯示
 print(type(df.index[0]),'<< 類型') #<class 'str'> << 一般字串
 '''
 df1["進場時機推測"] = df1["本行買入價格"].rolling(window=30).median() #新增平均項目
-print(df1.head())
-print('='*30)
-print(df2.head())
+df1["再來一個"] = np.arange(len(df1)) #找出index長度填充用
+print(df1)
+# print(df1.head())
+# print('='*30)
+# print(df2.head())
 # 圖形化設定
 # fig = plt.figure(dpi=128, figsize=(6,6)) #繪圖畫面設定
 df1[["本行買入價格","進場時機推測"]].plot(kind="line") # plot圖形化

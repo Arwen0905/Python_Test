@@ -2,7 +2,7 @@ import pandas as pd
 name = ['阿冬','小芳']
 city = ['台北市','彰化市']
 phone = ['0988-999-777','0966-666-888']
-ran = range(2020,2021)
+ran = range(2020,2022)
 name = pd.Series(name,index=ran)
 city = pd.Series(city,index=ran)
 phone = pd.Series(phone,index=ran)
