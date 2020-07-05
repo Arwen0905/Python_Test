@@ -55,3 +55,17 @@ with open(file1,encoding="utf-8") as f:
 #                 continue
 #             ans+=float(df[col][i]) #由第一維迴圈取值；第二維換圈的反巢狀取值
 #     df1_average.append(ans/11) #年齡層7項
+    
+print("第四階段"+"="*50)
+file4 = '職業訓練_就業人數.csv'
+with open(file4,encoding="utf-8") as f:
+    df1 = df = pd.read_csv(f)
+    df1_name04 = "職業訓練-就業人數(新北市)" #檔案命名
+    print(df1.dtypes)
+    
+    df1 = pd.DataFrame(df[["接受市府職業訓練人數_男","職業訓練就業人數_男",
+                           "接受市府職業訓練人數_女","職業訓練就業人數_女"]])
+    df1.index = df["年份"]
+    # print(df1)
+    # job = 0
+    # print(job)
