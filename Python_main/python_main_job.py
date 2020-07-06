@@ -41,21 +41,21 @@ with open(file1,encoding="utf-8") as f:
     # 設定結束-------------------------------------------------------------------------------
     
     # 視覺化:走勢圖
-    df1[["男_Male","女_Female"]].\
-        plot(kind="line",color=["#3498DB","#FF525B"],figsize=[10,5],linewidth=1.5) #走勢圖設定    
-    # plt.ylabel("😂",fontname="symbola",size=16,rotation=0,ha="right") #Y軸
-    plt.ylabel("失\n業\n率",size=16,rotation=0,ha="right",color="r") #Y軸
-    plt.title(df1_name01,y=1.01,size=18) #標題
-    plt.legend(["男生","女生"],loc="upper left",fontsize=14) #小圖位置
-    plt.xlabel("日期",size=16) #X軸標題
-    plt.grid(True,color="#555555",linewidth=0.6) #網格
-    plt.gca().set_facecolor("#DDDDDD") #背景顏色
+    # df1[["男_Male","女_Female"]].\
+    #     plot(kind="line",color=["#3498DB","#FF525B"],figsize=[10,5],linewidth=1.5) #走勢圖設定    
+    # # plt.ylabel("😂",fontname="symbola",size=16,rotation=0,ha="right") #Y軸
+    # plt.ylabel("失\n業\n率",size=16,rotation=0,ha="right",color="r") #Y軸
+    # plt.title(df1_name01,y=1.01,size=18) #標題
+    # plt.legend(["男生","女生"],loc="upper left",fontsize=14) #小圖位置
+    # plt.xlabel("日期",size=16) #X軸標題
+    # plt.grid(True,color="#555555",linewidth=0.6) #網格
+    # plt.gca().set_facecolor("#DDDDDD") #背景顏色
     
     # 出圖===================================================================================
-    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name01}.png", #檔名
-                bbox_inches="tight",transparent=True,dpi=300) #大圖
-    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name01}.jpg", #檔名
-                bbox_inches="tight",transparent=False,dpi=300) #大圖
+    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name01}.png", #檔名
+    #             bbox_inches="tight",transparent=True,dpi=300) #大圖
+    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name01}.jpg", #檔名
+    #             bbox_inches="tight",transparent=False,dpi=300) #大圖
     # 結束===================================================================================
     
     
@@ -89,20 +89,21 @@ with open(file1,encoding="utf-8") as f:
                    "#DC7633","#839192","#AADDCC","#CDE2D0","#D5D8DC"] #配色
 
     # 資料年份從1978年起，至2020年5月，設定為可依需求取得範圍分析------------------------------
-    df2 = df2[df2.index >= "2018/00"] # 這裡設定跑圖的年份
-    df2 = df2[df2.index <= "2019/00"] # 這裡設定跑圖的年份
-    df2_name02 = "2018-2019年" #檔案命名
+    df2 = df2[df2.index >= "1980/00"] # 這裡設定跑圖的年份
+    df2 = df2[df2.index <= "2020/05"] # 這裡設定跑圖的年份
+    df2_name02 = "1980-2000年" #檔案命名
     df2_sum = df2.sum() #各年齡總和
     print("失業率-年齡別 設定:"+df2.index[0]+" 至 "+df2.index[-1]) #檢視範圍用
     # 設定結束-------------------------------------------------------------------------------
     
-    # 測試:程式配色
+    # 測試:程式配色==========================================================================
     # df2_sum = [int(i) for i in df2_sum]
     # s = pd.Series(df2_sum,index=df2_columns)
     # print(s)
     # labels = s.index
     # sizes = s.values
     # pie_color = cm.rainbow(np.arange(len(sizes))/len(sizes))
+    # 結束===================================================================================
 
     
     # plt.figure(figsize=(13,8)) #畫布比例
@@ -258,24 +259,24 @@ with open(file3_108,encoding="utf-8") as f:
         df1_female.append(float(df[i][3]))
 
     # 視覺化:走勢圖
-    # df1_col = ["國中以下","高中職","專科","大學","研究所"]
-    # df1_row = ["男生","女生"]
-    # df1 = pd.DataFrame([df1_male,df1_female] ,columns=df1_col, index=df1_row).T
-    # print(df1)
-    # df1.plot(kind="line",color=["#3498DB","#EC7063"],figsize=[10,6],
-    #           fontsize=18,linewidth=4)
-    # plt.grid(True,color="#555555",linewidth=0.6)
-    # plt.title(df1_name04, size=21)
-    # plt.xlabel("學歷",fontsize=12)
-    # plt.ylabel("失\n業\n率",rotation=0,ha="right",fontsize=14,color="r")
-    # plt.legend(["男生","女森"],loc="upper left" ,fontsize=14)
+    df1_col = ["國中以下","高中職","專科","大學","研究所"]
+    df1_row = ["男生","女生"]
+    df1 = pd.DataFrame([df1_male,df1_female] ,columns=df1_col, index=df1_row).T
+    print(df1)
+    df1.plot(kind="line",color=["#3498DB","#EC7063"],figsize=[10,6],
+              fontsize=18,linewidth=4)
+    plt.grid(True,color="#555555",linewidth=0.6)
+    plt.title(df1_name04, size=21)
+    plt.xlabel("學歷",fontsize=12)
+    plt.ylabel("失\n業\n率",rotation=0,ha="right",fontsize=14,color="r")
+    plt.legend(["男生","女森"],loc="upper left" ,fontsize=14)
     
-    # plt.gca().set_facecolor("#DDDDDD") #設定背景色
+    plt.gca().set_facecolor("#DDDDDD") #設定背景色
     
     # 出圖===================================================================================
-    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name04}.png", #檔名
-    #             bbox_inches="tight",transparent=True,dpi=300) #大圖
-    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name04}.jpg", #檔名
-    #             bbox_inches="tight",transparent=False,dpi=300) #大圖
+    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name04}.png", #檔名
+                bbox_inches="tight",transparent=True,dpi=300) #大圖
+    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name04}.jpg", #檔名
+                bbox_inches="tight",transparent=False,dpi=300) #大圖
     # 結束===================================================================================
     
