@@ -34,28 +34,28 @@ with open(file1,encoding="utf-8") as f:
     # 結束===================================================================================
     
     # 資料年份從1978年起，至2020年5月，設定為可依需求取得範圍分析------------------------------
-    df1 = df1[df1.index >= "1992/00"] # 這裡設定跑圖的年份
-    df1 = df1[df1.index <= "1993/00"] # 這裡設定跑圖的年份
-    df1_name01 = "失業率-男女別 (1992年)" #檔案命名
+    df1 = df1[df1.index >= "2008/00"] # 這裡設定跑圖的年份
+    df1 = df1[df1.index <= "2009/00"] # 這裡設定跑圖的年份
+    df1_name01 = "失業率-男女別 (2008年)" #檔案命名
     print("失業率-男女別 設定:"+df1.index[0]+" 至 "+df1.index[-1]) #檢視範圍用
     # 設定結束-------------------------------------------------------------------------------
-    
+
     # 視覺化:走勢圖
-    # df1[["男_Male","女_Female"]].\
-    #     plot(kind="line",color=["#3498DB","#FF525B"],figsize=[10,5],linewidth=1.5) #走勢圖設定    
-    # # plt.ylabel("😂",fontname="symbola",size=16,rotation=0,ha="right") #Y軸
-    # plt.ylabel("失\n業\n率",size=16,rotation=0,ha="right",color="r") #Y軸
-    # plt.title(df1_name01,y=1.01,size=18) #標題
-    # plt.legend(["男生","女生"],loc="upper left",fontsize=14) #小圖位置
-    # plt.xlabel("日期",size=16) #X軸標題
-    # plt.grid(True,color="#555555",linewidth=0.6) #網格
-    # plt.gca().set_facecolor("#DDDDDD") #背景顏色
+    df1[["男_Male","女_Female"]].\
+        plot(kind="line",color=["#3498DB","#FF525B"],figsize=[10,5],linewidth=1.5) #走勢圖設定    
+    # plt.ylabel("😂",fontname="symbola",size=16,rotation=0,ha="right") #可放笑臉圖
+    plt.ylabel("失\n業\n率",size=16,rotation=0,ha="right",color="r") #Y軸
+    plt.title(df1_name01,y=1.01,size=18) #標題
+    plt.legend(["男生","女生"],loc="upper left",fontsize=14) #小圖位置
+    plt.xlabel("日期",size=16) #X軸標題
+    plt.grid(True,color="#555555",linewidth=0.6) #網格
+    plt.gca().set_facecolor("#DDDDDD") #背景顏色
     
     # 出圖===================================================================================
-    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name01}.png", #檔名
-    #             bbox_inches="tight",transparent=True,dpi=300) #大圖
-    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name01}.jpg", #檔名
-    #             bbox_inches="tight",transparent=False,dpi=300) #大圖
+    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name01}.png", #檔名
+                bbox_inches="tight",transparent=True,dpi=300) #大圖
+    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name01}.jpg", #檔名
+                bbox_inches="tight",transparent=False,dpi=300) #大圖
     # 結束===================================================================================
     
     
@@ -86,12 +86,12 @@ with open(file1,encoding="utf-8") as f:
     
     # 視覺化:圓餅圖
     pie_color = ["#3498DB","#FF525B","#9B59B6","#1ABCCA","#2ECC71","#F1C40F",
-                   "#DC7633","#839192","#AADDCC","#CDE2D0","#D5D8DC"] #配色
+                    "#DC7633","#839192","#AADDCC","#CDE2D0","#D5D8DC"] #配色
 
     # 資料年份從1978年起，至2020年5月，設定為可依需求取得範圍分析------------------------------
     df2 = df2[df2.index >= "1980/00"] # 這裡設定跑圖的年份
-    df2 = df2[df2.index <= "2020/05"] # 這裡設定跑圖的年份
-    df2_name02 = "1980-2000年" #檔案命名
+    df2 = df2[df2.index <= "2000/00"] # 這裡設定跑圖的年份
+    df2_name02 = "1980-2000 (相對關係比)" #檔案命名
     df2_sum = df2.sum() #各年齡總和
     print("失業率-年齡別 設定:"+df2.index[0]+" 至 "+df2.index[-1]) #檢視範圍用
     # 設定結束-------------------------------------------------------------------------------
@@ -105,24 +105,26 @@ with open(file1,encoding="utf-8") as f:
     # pie_color = cm.rainbow(np.arange(len(sizes))/len(sizes))
     # 結束===================================================================================
 
-    
-    # plt.figure(figsize=(13,8)) #畫布比例
-    # patches,out_text,in_text = plt.pie(df2_sum,labels=df2_columns,
-    #             autopct="%1.1f%%",startangle=90,radius=2, #圓餅圖設定
-    #             shadow=False,pctdistance=0.8,explode=explode,colors=pie_color)
-    # plt.axis("equal") #xy軸一致(圓形)
-    # plt.title("失業率 - 年齡別\n"+df2_name02,x=0.20,y=0.92,size=36) #標題
-    # plt.legend(loc="lower left",fontsize=14) #小圖設定
-    # # 改變字體大小
-    # in_text = [i.set_size(14) for i in in_text] #內圍字體大小
-    # out_text = [i.set_size(14) for i in out_text] #外圍字體大小
 
+    
+    plt.figure(figsize=(13,8)) #畫布比例
+    patches,out_text,in_text = plt.pie(df2_sum,labels=df2_columns,
+                autopct="%1.1f%%",startangle=90,radius=2, #圓餅圖設定
+                shadow=False,pctdistance=0.8,explode=explode,colors=pie_color)
+    plt.axis("equal") #xy軸一致(圓形)
+    plt.title("失業率 - 年齡別\n"+df2_name02,x=0.15,y=0.90,size=24) #標題
+    plt.legend(loc="lower left",fontsize=14) #小圖設定
+    # 改變字體大小
+    in_text = [i.set_size(14) for i in in_text] #內圍字體大小
+    out_text = [i.set_size(14) for i in out_text] #外圍字體大小
+    
     # 出圖===================================================================================
     # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/失業率 - 年齡別 {df2_name02}.png", #檔名
     #             bbox_inches="tight",transparent=True,dpi=300) #大圖
     # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/失業率 - 年齡別 {df2_name02}.jpg", #檔名
     #             bbox_inches="tight",transparent=False,dpi=300) #大圖
     # 結束===================================================================================
+
 
 print("第二階段"+"="*50)
 file2 = '人力資源調查縣市別失業率.csv'
@@ -140,9 +142,9 @@ with open(file2,encoding="utf-8") as f:
     # print(df_col_tem) #檢視:取得所有列名稱!
     df.index = df["年份"] #設定df1索引值為日期
     df1_city = df[["臺北市_Taipei_City","臺中市_Taichung_City","臺南市_Tainan_City",
-                   "高雄市_Kaohsiung_City","北部地區_Northern_region","中部地區_Central_region"]]
+                    "高雄市_Kaohsiung_City","北部地區_Northern_region","中部地區_Central_region"]]
     df1_county = df[["新北市_New_Taipei_City","臺中縣_Taichung_County","臺南縣_Tainan_County",
-                     "高雄縣_Kaohsiung_County","南部地區_Southern_region","東部地區_Eastern_region"]]
+                      "高雄縣_Kaohsiung_County","南部地區_Southern_region","東部地區_Eastern_region"]]
     # 更換縣市需對應下方X軸名稱
     ax_name = ['台北/新北', '台中市/縣', '臺南市/縣', '高雄市/縣', "北部/南部", "中部/東部"] # X軸名稱
     # 台灣
@@ -196,37 +198,43 @@ with open(file2,encoding="utf-8") as f:
     # print(df1_col_values2) #確認內容OK 縣
     # 結束===================================================================================
     # 視覺化:長條圖(比較圖)
-    # width = 0.3 #條寬度
-    # x = np.arange(len(ax_name))
-    # fig, ax = plt.subplots()
-    # rects1 = ax.bar(x - width/2, df1_col_values, width, label=None, color="#F39C12")
-    # rects2 = ax.bar(x + width/2, df1_col_values2, width, label=None, color="#3498DB")
+    width = 0.3 #條寬度
+    x = np.arange(len(ax_name))
+    fig, ax = plt.subplots()
+    rects1 = ax.bar(x - width/2, df1_col_values, width, label=None, color="#F39C12")
+    rects2 = ax.bar(x + width/2, df1_col_values2, width, label=None, color="#3498DB")
     
-    # ax.set_ylabel("失\n業\n率",size=14,rotation=0,ha="right",color="r")
-    # ax.set_title(df1_Taiwan_name03)
-    # ax.set_xticks(x)
-    # ax.set_xticklabels(ax_name)
-    # plt.gca().set_facecolor("#17202A")
-    # ax.legend()
+    ax.set_ylabel("失\n業\n率",size=14,rotation=0,ha="right",color="r")
+    ax.set_title(df1_Taiwan_name03)
+    ax.set_xticks(x)
+    ax.set_xticklabels(ax_name)
+    plt.gca().set_facecolor("#17202A")
+    ax.legend()
     
-    # def autolabel(rects):
-    #     for rect in rects:
-    #         height = rect.get_height()
-    #         ax.annotate('{}'.format(height),
-    #                     xy=(rect.get_x() + rect.get_width() / 2, height),
-    #                     xytext=(0, 3),  # 3 points vertical offset
-    #                     textcoords="offset points",
-    #                     ha='center', va='bottom',fontsize=8,color="white")
+    def autolabel(rects):
+        for rect in rects:
+            height = rect.get_height()
+            ax.annotate('{}'.format(height),
+                        xy=(rect.get_x() + rect.get_width() / 2, height),
+                        xytext=(0, 3),  # 3 points vertical offset
+                        textcoords="offset points",
+                        ha='center', va='bottom',fontsize=8,color="white")
             
-    # autolabel(rects1)
-    # autolabel(rects2)
-    # fig.tight_layout()
+    autolabel(rects1)
+    autolabel(rects2)
+    fig.tight_layout()
     # 出圖===================================================================================
     # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_Taiwan_name03}.png", #檔名
     #             bbox_inches="tight",transparent=True,dpi=300) #大圖
     # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_Taiwan_name03}.jpg", #檔名
     #             bbox_inches="tight",transparent=False,dpi=300) #大圖
     # 結束===================================================================================
+    width = 0.3 #條寬度
+    x = np.arange(len(ax_name))
+    plt.subplot(1,2,1) # 設定(幾欄、幾列、位置)     
+    plt.bar(x - width/2, df1_col_values, width, color="#F39C12")
+    plt.subplot(1,2,2) # 設定(幾欄、幾列、位置)
+    plt.bar(x + width/2, df1_col_values2, width, color="#3498DB")
     
 print("第三階段"+"="*50)
 # file3 = '失業率－婚姻狀況別.csv'
@@ -242,10 +250,10 @@ with open(file3_108,encoding="utf-8") as f:
     df1_name04 = "失業率-教育別 (108年)" #檔案命名
     
     df1 = pd.DataFrame(df[["國中及以下_國小及以下_Junior_high_and_below_Primary_school_and_below",
-                         "高中_職_合計_Senior_high_and_vocational_Total",
-                         "大專及以上_專科_Junior_college_and_above_Junior_college",
-                         "大專及以上_大學_Junior_college_and_above_University",
-                         "大專及以上_研究所_Junior_college_and_above_Graduate_school"]])
+                          "高中_職_合計_Senior_high_and_vocational_Total",
+                          "大專及以上_專科_Junior_college_and_above_Junior_college",
+                          "大專及以上_大學_Junior_college_and_above_University",
+                          "大專及以上_研究所_Junior_college_and_above_Graduate_school"]])
     
     # print(df["項目別_Item"][2:4])
     print(df1.index.values)
@@ -259,24 +267,24 @@ with open(file3_108,encoding="utf-8") as f:
         df1_female.append(float(df[i][3]))
 
     # 視覺化:走勢圖
-    df1_col = ["國中以下","高中職","專科","大學","研究所"]
-    df1_row = ["男生","女生"]
-    df1 = pd.DataFrame([df1_male,df1_female] ,columns=df1_col, index=df1_row).T
-    print(df1)
-    df1.plot(kind="line",color=["#3498DB","#EC7063"],figsize=[10,6],
-              fontsize=18,linewidth=4)
-    plt.grid(True,color="#555555",linewidth=0.6)
-    plt.title(df1_name04, size=21)
-    plt.xlabel("學歷",fontsize=12)
-    plt.ylabel("失\n業\n率",rotation=0,ha="right",fontsize=14,color="r")
-    plt.legend(["男生","女森"],loc="upper left" ,fontsize=14)
+    # df1_col = ["國中以下","高中職","專科","大學","研究所"]
+    # df1_row = ["男生","女生"]
+    # df1 = pd.DataFrame([df1_male,df1_female] ,columns=df1_col, index=df1_row).T
+    # print(df1)
+    # df1.plot(kind="line",color=["#3498DB","#EC7063"],figsize=[10,6],
+    #           fontsize=18,linewidth=4)
+    # plt.grid(True,color="#555555",linewidth=0.6)
+    # plt.title(df1_name04, size=21)
+    # plt.xlabel("學歷",fontsize=12)
+    # plt.ylabel("失\n業\n率",rotation=0,ha="right",fontsize=14,color="r")
+    # plt.legend(["男生","女森"],loc="upper left" ,fontsize=14)
     
-    plt.gca().set_facecolor("#DDDDDD") #設定背景色
+    # plt.gca().set_facecolor("#DDDDDD") #設定背景色
     
     # 出圖===================================================================================
-    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name04}.png", #檔名
-                bbox_inches="tight",transparent=True,dpi=300) #大圖
-    plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name04}.jpg", #檔名
-                bbox_inches="tight",transparent=False,dpi=300) #大圖
+    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/png/{df1_name04}.png", #檔名
+    #             bbox_inches="tight",transparent=True,dpi=300) #大圖
+    # plt.savefig(f"C:/Users/user/Desktop/Python_Test/Python_main/output/{df1_name04}.jpg", #檔名
+    #             bbox_inches="tight",transparent=False,dpi=300) #大圖
     # 結束===================================================================================
-    
+
