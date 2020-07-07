@@ -7,7 +7,7 @@ url = "http://tqc.codejudger.com:3000/target/5205.json"
 # 發出Get請求
 response = requests.get(url)
 # 回傳內容長度
-print("Content-Length:", len(response.content))
+print("Content-Length:",len(response.content))
 # 將取得的回傳內容轉換成Json格式
 response = response.json()
 
@@ -16,8 +16,7 @@ print()
 # 顯示新北市每一個地區的PM2.5相關資料
 print('新北市PM2.5相關資料：')
 for record in response:
-    # print(record['County'])
-    if record['County'] == record['County']:
+    if record['County'] == "新北市":
         print('%s：' % record['SiteName'])
         print("\t",'AQI：%s' % record['AQI'])
         print("\t",'PM2.5：%s' % record['PM2.5'])
