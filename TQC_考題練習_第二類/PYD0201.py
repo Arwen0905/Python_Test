@@ -6,7 +6,7 @@ url = 'http://tqc.codejudger.com:3000/target/5201.html'
 
 # 使用 GET 請求
 htmlfile = requests.get(url)
-print(htmlfile.status_code)
+
 # 驗證HTTP Status Code
 if htmlfile.status_code == 200:
     # 欲搜尋的字串
