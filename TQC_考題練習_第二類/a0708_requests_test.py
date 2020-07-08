@@ -1,13 +1,31 @@
 from bs4 import BeautifulSoup
 import requests
+import os
+from urllib.request import urlretrieve
 
 url = 'https://data.gov.tw/dataset/27396'
-rq = requests.get(url,stream=True)
+rq = requests.get(url)
 soup = BeautifulSoup(rq.text,"html.parser")
 # print(soup.prettify())
 re = soup.find_all("a",{"title":"下載格式為 CSV"})
-for i in re:
+count = 0
+for index,i in enumerate(re):
     print(i.get("href"))
+    try:
+        csv_url = i.get("href")
+        count+=1
+        os.makedirs('./csv/',exist_ok=True) #建立目錄存放檔案
+        urlretrieve(csv_url,f'./output/{count}.csv') #將什麼檔案存放到什麼位置
+    except:
+        print('沒有這東西!')
+    # if index==1:
+    #     print(i.get("href"))
+    #     csv_url = i.get("href")
+    #     count+=1
+    #     os.makedirs('./csv/',exist_ok=True) #建立目錄存放檔案
+    #     urlretrieve(csv_url,f'./output/{count}.csv') #將什麼檔案存放到什麼位置
+
+
 
 # filename = "測試檔案名稱"
 # with open(filename, 'wb') as f:
