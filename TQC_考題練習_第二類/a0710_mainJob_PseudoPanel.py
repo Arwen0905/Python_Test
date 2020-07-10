@@ -10,40 +10,40 @@ import matplotlib.pyplot as plt
 plt.rcParams["font.family"] = ["Microsoft Jhenghei"] #中文設定
 lst_file=[]
 
-url = 'https://data.gov.tw/dataset/27396' #網址設定
-rq = requests.get(url) #取得網址
-soup = BeautifulSoup(rq.text,"html.parser") #解析html網址內容
-# print(soup.prettify()) #html檢視用
+# url = 'https://data.gov.tw/dataset/27396' #網址設定
+# rq = requests.get(url) #取得網址
+# soup = BeautifulSoup(rq.text,"html.parser") #解析html網址內容
+# # print(soup.prettify()) #html檢視用
 
-name_q= soup.find_all("div",class_=("field-items")) #找檔名
+# name_q= soup.find_all("div",class_=("field-items")) #找檔名
 
-for i in name_q: #捕捉檔名
-    s = i.text
-    res = re.findall('\d{2}\d?[年]\w*',s)
-    if res == [s]:
-        lst_file.append(res[0])
-        print(res,"檔名捕捉!")
-print("\n檔案名稱串列:\n",lst_file)
+# for i in name_q: #捕捉檔名
+#     s = i.text
+#     res = re.findall('\d{2}\d?[年]\w*',s)
+#     if res == [s]:
+#         lst_file.append(res[0])
+#         print(res,"檔名捕捉!")
+# print("\n檔案名稱串列:\n",lst_file)
 
 
-rs = soup.find_all("a",{"title":"下載格式為 CSV"}) #找載點
+# rs = soup.find_all("a",{"title":"下載格式為 CSV"}) #找載點
 
-if not os.path.isdir("./output"):os.mkdir("./output") #如果沒有就創建目錄
-count=0
-for index,i in enumerate(rs):
-    try:
-        csv_url = i.get("href")
-        # if count < len(lst_file):
-        if index%2==0:
-            urlretrieve(csv_url,f'./output/{lst_file[count]}.csv') #存CSV檔
-            count+=1
-            print(i.get("href"),"正在處理.....")
-        else:
-            # urlretrieve(csv_url,f'./output/重複檔案{count}.csv') #存重複檔
-            print(i.get("href"),"正在排除.....")
-        print(lst_file[count],"儲存完畢!")
-    except:
-        print('資料來源有誤，跳過!')
+# if not os.path.isdir("./output"):os.mkdir("./output") #如果沒有就創建目錄
+# count=0
+# for index,i in enumerate(rs):
+#     try:
+#         csv_url = i.get("href")
+#         # if count < len(lst_file):
+#         if index%2==0:
+#             urlretrieve(csv_url,f'./output/{lst_file[count]}.csv') #存CSV檔
+#             count+=1
+#             print(i.get("href"),"正在處理.....")
+#         else:
+#             # urlretrieve(csv_url,f'./output/重複檔案{count}.csv') #存重複檔
+#             print(i.get("href"),"正在排除.....")
+#         print(lst_file[count],"儲存完畢!")
+#     except:
+#         print('資料來源有誤，跳過!')
 # ====================================================================================
 
 
@@ -69,7 +69,7 @@ for i in range(len(lst_f)): #將載入的csv文件，逐一合併至 多維盒�
         df_all[i].index = df_all[i]["年索引"] #簡化名稱並設為索引值
         df_all[i] = df_all[i].drop(["年索引"],axis=1) #完成上述 就砍掉列表"年索引" !0
         
-        lst_f[i] = lst_f[i][:3] #再重新賦予年份，命名只取數字就好
+        lst_f[i] = lst_f[i][:3] #再重新賦予年份，命名只取到數字就好
         df_all[i]["年份"] = lst_f[i] #新增"年份"至列的末端
         
         # df_all[i] = df_all[i].rename(columns={"年索引":"年份"}) #避免索引同名 !0
@@ -91,7 +91,7 @@ print(res.size) #顯示資料"筆數"
 print(set(res.index)) #查找"年索引"index，轉set不重複
 print(res.columns.values) #顯示"列表"
 print(set(res["年份"])) #查找"年份"欄位，轉set不重複
-
+    
 print("="*50)
 # 分組 及 取出年份
 gp1 = res.groupby("年份")
@@ -99,7 +99,7 @@ gp2 = res.groupby("年份")
 
 # 年份設定 (102~108) ==========================================================
 gp1_name = "102"
-gp2_name = "108"
+gp2_name = "104"
 # 結束設定 ==========================================================
 print(gp1) #記憶體位置
 print(type(gp1)) #GroupBy
@@ -137,3 +137,24 @@ for i in csv_list: #循環全部csv文件
         f.write(fr) #執行
 print('合併完畢！')
 # end
+# ==================================================================
+
+
+# print("多圖作業"+"="*50)
+# gp1 = gp1.head()
+# gp2 = gp2.head()
+
+# gp1.plot(kind="bar",subplots=(1,2,1))
+# # gp1,plt.subplot(1,2,1)
+# gp2.plot(kind="bar",subplots=(1,2,2))
+# gp2,plt.subplot(1,2,2)
+
+
+
+
+
+
+
+
+
+

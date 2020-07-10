@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/ -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v14.3 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Python 使用 MySQL Connector 操作 MySQL/MariaDB 資料庫教學與範例 - Office 指南</title>
+	<meta name="robots" content="index, follow">
+	<meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+	<link rel="canonical" href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/">
+	<meta property="og:locale" content="zh_TW">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Python 使用 MySQL Connector 操作 MySQL/MariaDB 資料庫教學與範例 - Office 指南">
+	<meta property="og:description" content="介紹如何使用 Python 的 MySQL Connector 模組連接 MySQL/MariaDB 資料庫， […]">
+	<meta property="og:url" content="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/">
+	<meta property="og:site_name" content="Office 指南">
+	<meta property="article:published_time" content="2019-10-29T03:10:31+00:00">
+	<meta property="article:modified_time" content="2020-02-18T08:13:01+00:00">
+	<meta property="og:image" content="https://officeguide.cc/wp-content/uploads/2019/09/python-boxes-flat-logo-20191024-01.jpg">
+	<meta property="og:image:width" content="1920">
+	<meta property="og:image:height" content="960">
+	<meta name="twitter:card" content="summary_large_image">
+	<script type="text/javascript" async="" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/analytics.js.下載"></script><script async="" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/async-ads.js.下載"></script><script src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/osd.js.下載"></script><script type="text/javascript" async="" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/recaptcha__zh_cn.js.下載"></script><script src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(8).txt"></script><script src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(9).txt" id="google_shimpl"></script><script type="text/javascript" async="" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(10).txt"></script><script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://officeguide.cc/#website","url":"https://officeguide.cc/","name":"Office \u6307\u5357","description":"\u8fa6\u516c\u5ba4\u5de5\u4f5c\u5be6\u7528\u6559\u5b78","potentialAction":[{"@type":"SearchAction","target":"https://officeguide.cc/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"zh-TW"},{"@type":"ImageObject","@id":"https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/#primaryimage","inLanguage":"zh-TW","url":"https://officeguide.cc/wp-content/uploads/2019/09/python-boxes-flat-logo-20191024-01.jpg","width":"1920","height":"960"},{"@type":"WebPage","@id":"https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/#webpage","url":"https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/","name":"Python \u4f7f\u7528 MySQL Connector \u64cd\u4f5c MySQL/MariaDB \u8cc7\u6599\u5eab\u6559\u5b78\u8207\u7bc4\u4f8b - Office \u6307\u5357","isPartOf":{"@id":"https://officeguide.cc/#website"},"primaryImageOfPage":{"@id":"https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/#primaryimage"},"datePublished":"2019-10-29T03:10:31+00:00","dateModified":"2020-02-18T08:13:01+00:00","author":{"@id":"https://officeguide.cc/#/schema/person/d471aab7ab5cb222e4aa3782f5a40d3d"},"inLanguage":"zh-TW","potentialAction":[{"@type":"ReadAction","target":["https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/"]}]},{"@type":["Person"],"@id":"https://officeguide.cc/#/schema/person/d471aab7ab5cb222e4aa3782f5a40d3d","name":"Office Guide","image":{"@type":"ImageObject","@id":"https://officeguide.cc/#personlogo","inLanguage":"zh-TW","url":"https://secure.gravatar.com/avatar/1c3040c2cfd89f0204f9470ceef1e08f?s=96&d=mm&r=g","caption":"Office Guide"},"description":"\u8fa6\u516c\u5ba4\u5de5\u4f5c\u5be6\u7528\u6559\u5b78"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="amphtml" href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/amp/"><meta name="generator" content="AMP for WP 1.0.52"><link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《Office 指南》» 資訊提供" href="https://officeguide.cc/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《Office 指南》» 留言的資訊提供" href="https://officeguide.cc/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《Office 指南 》»〈Python 使用 MySQL Connector 操作 MySQL/MariaDB 資料庫教學與範例〉留言的資訊提供" href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/officeguide.cc\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.4.2"}};
+			/*! This file is auto-generated */
+			!function(e,a,t){var r,n,o,i,p=a.createElement("canvas"),s=p.getContext&&p.getContext("2d");function c(e,t){var a=String.fromCharCode;s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,e),0,0);var r=p.toDataURL();return s.clearRect(0,0,p.width,p.height),s.fillText(a.apply(this,t),0,0),r===p.toDataURL()}function l(e){if(!s||!s.fillText)return!1;switch(s.textBaseline="top",s.font="600 32px Arial",e){case"flag":return!c([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])&&(!c([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!c([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]));case"emoji":return!c([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}function d(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(i=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},o=0;o<i.length;o++)t.supports[i[o]]=l(i[o]),t.supports.everything=t.supports.everything&&t.supports[i[o]],"flag"!==i[o]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[i[o]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(r=t.source||{}).concatemoji?d(r.concatemoji):r.wpemoji&&r.twemoji&&(d(r.twemoji),d(r.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/wp-emoji-release.min.js.下載" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel="stylesheet" id="office-guide-css" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/style.css" type="text/css" media="all">
+<style id="office-guide-inline-css" type="text/css">
+
+		.wp-custom-logo .site-container .title-area {
+			max-width: 230px;
+		}
+		
+		.wp-custom-logo .title-area {
+			padding-top: 12.71875px;
+		}
+		
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/style.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="genesis-sample-fonts-css" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/css(2)" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="simple-social-icons-font-css" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/style(1).css" type="text/css" media="all">
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/jquery.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/jquery-migrate.min.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/svgxuse.js.下載"></script>
+<link rel="https://api.w.org/" href="https://officeguide.cc/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://officeguide.cc/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://officeguide.cc/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 5.4.2">
+<link rel="shortlink" href="https://officeguide.cc/?p=6728">
+<link rel="alternate" type="application/json+oembed" href="https://officeguide.cc/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fofficeguide.cc%2Fpython-mysql-mariadb-database-connector-tutorial-examples%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://officeguide.cc/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fofficeguide.cc%2Fpython-mysql-mariadb-database-connector-tutorial-examples%2F&amp;format=xml">
+<link rel="pingback" href="https://officeguide.cc/xmlrpc.php">
+<link rel="apple-touch-icon" sizes="180x180" href="https://officeguide.cc/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://officeguide.cc/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://officeguide.cc/favicon-16x16.png">
+<link rel="manifest" href="https://officeguide.cc/site.webmanifest">
+<link rel="mask-icon" href="https://officeguide.cc/safari-pinned-tab.svg" color="#e23f00">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#e23f00">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-116677590-1');
+</script>
+<script async="" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(11).txt"></script>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({
+google_ad_client: "ca-pub-5624032307910838",
+enable_page_level_ads: true,
+tag_partner: "genesis"
+});
+</script><link rel="icon" href="https://officeguide.cc/wp-content/uploads/2018/03/cropped-officeguide-logo-1920-32x32.png" sizes="32x32">
+<link rel="icon" href="https://officeguide.cc/wp-content/uploads/2018/03/cropped-officeguide-logo-1920-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://officeguide.cc/wp-content/uploads/2018/03/cropped-officeguide-logo-1920-180x180.png">
+<meta name="msapplication-TileImage" content="https://officeguide.cc/wp-content/uploads/2018/03/cropped-officeguide-logo-1920-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			
+		</style>
+		<link rel="preload" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(12).txt" as="script"><script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(12).txt"></script><link rel="preload" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(13).txt" as="script"><script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/f(13).txt"></script><script src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/cse_element__zh_tw.js.下載" type="text/javascript"></script><link type="text/css" rel="stylesheet" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/default_v2+zh_TW.css"><link type="text/css" rel="stylesheet" href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/default.css"><style type="text/css">.gsc-control-cse{font-family:arial, sans-serif}.gsc-control-cse .gsc-table-result{font-family:arial, sans-serif}.gsc-refinementsGradient{background:linear-gradient(to left,rgba(255,255,255,1),rgba(255,255,255,0))}.gsc-control-cse{border-color:#FFFFFF;background-color:#FFFFFF}input.gsc-input,.gsc-input-box,.gsc-input-box-hover,.gsc-input-box-focus{border-color:#D9D9D9}.gsc-search-button-v2,.gsc-search-button-v2:hover,.gsc-search-button-v2:focus{border-color:#2F5BB7;background-color:#4D90FE;background-image:none;filter:none}.gsc-search-button-v2 svg{fill:#FFFFFF}.gsc-tabHeader.gsc-tabhActive,.gsc-refinementHeader.gsc-refinementhActive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-tabHeader.gsc-tabhInactive,.gsc-refinementHeader.gsc-refinementhInactive{color:#CCCCCC;border-color:#CCCCCC;background-color:#FFFFFF}.gsc-webResult.gsc-result,.gsc-results .gsc-imageResult{border-color:#FFFFFF;background-color:#FFFFFF}.gsc-webResult.gsc-result:hover{border-color:#FFFFFF;background-color:#FFFFFF}.gs-webResult.gs-result a.gs-title:link,.gs-webResult.gs-result a.gs-title:link b,.gs-imageResult a.gs-title:link,.gs-imageResult a.gs-title:link b{color:#1155CC}.gs-webResult.gs-result a.gs-title:visited,.gs-webResult.gs-result a.gs-title:visited b,.gs-imageResult a.gs-title:visited,.gs-imageResult a.gs-title:visited b{color:#1155CC}.gs-webResult.gs-result a.gs-title:hover,.gs-webResult.gs-result a.gs-title:hover b,.gs-imageResult a.gs-title:hover,.gs-imageResult a.gs-title:hover b{color:#1155CC}.gs-webResult.gs-result a.gs-title:active,.gs-webResult.gs-result a.gs-title:active b,.gs-imageResult a.gs-title:active,.gs-imageResult a.gs-title:active b{color:#1155CC}.gsc-cursor-page{color:#1155CC}a.gsc-trailing-more-results:link{color:#1155CC}.gs-webResult .gs-snippet,.gs-fileFormatType{color:#333333}.gs-webResult div.gs-visibleUrl{color:#009933}.gs-webResult div.gs-visibleUrl-short{color:#009933}.gs-webResult div.gs-visibleUrl-short{display:none}.gs-webResult div.gs-visibleUrl-long{display:block}.gs-promotion div.gs-visibleUrl-short{display:none}.gs-promotion div.gs-visibleUrl-long{display:block}.gsc-cursor-box{border-color:#FFFFFF}.gsc-results .gsc-cursor-box .gsc-cursor-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-results .gsc-cursor-box .gsc-cursor-current-page{border-color:#CCCCCC;background-color:#FFFFFF;color:#CCCCCC}.gsc-webResult.gsc-result.gsc-promotion{border-color:#F6F6F6;background-color:#F6F6F6}.gsc-completion-title{color:#1155CC}.gsc-completion-snippet{color:#333333}.gs-promotion a.gs-title:link,.gs-promotion a.gs-title:link *,.gs-promotion .gs-snippet a:link{color:#1155CC}.gs-promotion a.gs-title:visited,.gs-promotion a.gs-title:visited *,.gs-promotion .gs-snippet a:visited{color:#1155CC}.gs-promotion a.gs-title:hover,.gs-promotion a.gs-title:hover *,.gs-promotion .gs-snippet a:hover{color:#1155CC}.gs-promotion a.gs-title:active,.gs-promotion a.gs-title:active *,.gs-promotion .gs-snippet a:active{color:#1155CC}.gs-promotion .gs-snippet,.gs-promotion .gs-title .gs-promotion-title-right,.gs-promotion .gs-title .gs-promotion-title-right *{color:#333333}.gs-promotion .gs-visibleUrl,.gs-promotion .gs-visibleUrl-short{color:#009933}.gcsc-find-more-on-google{color:#1155CC}.gcsc-find-more-on-google-magnifier{fill:#1155CC}</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{vertical-align:middle;opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gssb_a{padding:0 9px}.gsib_a{padding:5px 9px 4px 9px}.gscb_a{line-height:27px}.gssb_e{border:0}.gssb_l{margin:5px 0}input.gsc-input::-webkit-input-placeholder{font-size:14px}input.gsc-input:-moz-placeholder{font-size:14px}input.gsc-input::-moz-placeholder{font-size:14px}input.gsc-input:-ms-input-placeholder{font-size:14px}input.gsc-input:focus::-webkit-input-placeholder{color:transparent}input.gsc-input:focus:-moz-placeholder{color:transparent}input.gsc-input:focus::-moz-placeholder{color:transparent}input.gsc-input:focus:-ms-input-placeholder{color:transparent}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style></head>
+<body class="post-template-default single single-post postid-6728 single-format-standard wp-custom-logo header-full-width content-sidebar genesis-breadcrumbs-hidden genesis-footer-widgets-hidden"><div class="site-container" style="height: auto !important;"><ul class="genesis-skip-link"><li><a href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/#genesis-nav-primary" class="screen-reader-shortcut"> Skip to primary navigation</a></li><li><a href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/#genesis-content" class="screen-reader-shortcut"> Skip to main content</a></li><li><a href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/#genesis-sidebar-primary" class="screen-reader-shortcut"> Skip to primary sidebar</a></li></ul><header class="site-header"><div class="wrap"><div class="title-area"><a href="https://officeguide.cc/" class="custom-logo-link" rel="home"><img width="480" height="93" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/officeguide-text-logo-480.png" class="custom-logo" alt="Office 指南" srcset="https://officeguide.cc/wp-content/uploads/2018/03/officeguide-text-logo-480.png 480w, https://officeguide.cc/wp-content/uploads/2018/03/officeguide-text-logo-480-300x58.png 300w" sizes="(max-width: 480px) 100vw, 480px"></a><p class="site-title"><a href="https://officeguide.cc/">Office 指南</a></p><p class="site-description">辦公室工作實用教學</p></div><button class="menu-toggle dashicons-before dashicons-menu" aria-expanded="false" aria-pressed="false" id="genesis-mobile-nav-primary">選單</button><nav class="nav-primary genesis-responsive-menu" aria-label="Main" id="genesis-nav-primary" style=""><div class="wrap"><ul id="menu-%e4%b8%bb%e9%81%b8%e5%96%ae" class="menu genesis-nav-menu menu-primary js-superfish sf-js-enabled sf-arrows" style="touch-action: pan-y;"><li id="menu-item-30" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-30"><a href="https://officeguide.cc/category/excel/"><span>Excel</span></a></li>
+<li id="menu-item-32" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-32"><a href="https://officeguide.cc/category/word/"><span>Word</span></a></li>
+<li id="menu-item-31" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-31"><a href="https://officeguide.cc/category/powerpoint/"><span>PowerPoint</span></a></li>
+<li id="menu-item-35" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-35"><a href="https://officeguide.cc/category/windows/"><span>Windows</span></a></li>
+<li id="menu-item-34" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-34"><a href="https://officeguide.cc/category/powershell/"><span>PowerShell</span></a></li>
+<li id="menu-item-2957" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2957"><a href="https://officeguide.cc/category/r/"><span>R</span></a></li>
+</ul></div></nav></div></header><div class="site-inner" style="margin-top: 69px; height: auto !important;"><div class="content-sidebar-wrap"><main class="content" id="genesis-content"><article class="post-6728 post type-post status-publish format-standard has-post-thumbnail category-python category-database tag-mysql-mariadb entry"><header class="entry-header"><h1 class="entry-title">Python 使用 MySQL Connector 操作 MySQL/MariaDB 資料庫教學與範例</h1>
+<div class="singular-featured-image"><img width="702" height="351" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/python-boxes-flat-logo-20191024-01-768x384.jpg" class="attachment-medium_large size-medium_large" alt="" srcset="https://officeguide.cc/wp-content/uploads/2019/09/python-boxes-flat-logo-20191024-01-768x384.jpg 768w, https://officeguide.cc/wp-content/uploads/2019/09/python-boxes-flat-logo-20191024-01-300x150.jpg 300w, https://officeguide.cc/wp-content/uploads/2019/09/python-boxes-flat-logo-20191024-01-1024x512.jpg 1024w, https://officeguide.cc/wp-content/uploads/2019/09/python-boxes-flat-logo-20191024-01.jpg 1920w" sizes="(max-width: 702px) 100vw, 702px"></div></header><div class="entry-content"><p>介紹如何使用 Python 的 MySQL Connector 模組連接 MySQL/MariaDB 資料庫，進行查詢、新增或刪除等各種操作。<br>
+</p><p>
+<!-- OfficeGuide 文章中間連結 -->
+<ins class="adsbygoogle" style="display:inline-block;width:200px;height:90px" data-ad-client="ca-pub-5624032307910838" data-ad-slot="3805723117" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:200px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:200px;background-color:transparent;"><iframe id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0;width:200px;height:90px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="200" height="90" frameborder="0" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/ads.html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!1" data-load-complete="true" data-google-query-id="CPiwjL-g-ekCFZeelgodQtwIeg"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></p><br>
+Python 有許多 MySQL/MariaDB 資料庫相關的模組，而最常被使用的就是 MySQL Connector 與 MySQLdb 這兩個模組，以下是 MySQL Connector 模組的使用方式。<p></p>
+<h2>安裝 MySQL Connector 模組</h2>
+<p>開啟 Windows 中的命令提示自元，使用 <code>pip</code> 安裝 Python 的 MySQL Connector 模組：</p>
+<pre class="code">pip install mysql-connector-python</pre>
+<figure id="attachment_7434" aria-describedby="caption-attachment-7434" style="width: 533px" class="wp-caption alignnone"><a href="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/python-connect-mysql-mariadb-database-tutorial-examples-20191024-01.png"><img class="wp-image-7434 size-full" title="安裝 Python 的 MySQL Connector 模組" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/python-connect-mysql-mariadb-database-tutorial-examples-20191024-01.png" alt="安裝 Python 的 MySQL Connector 模組" width="533" height="139" srcset="https://officeguide.cc/wp-content/uploads/2019/09/python-connect-mysql-mariadb-database-tutorial-examples-20191024-01.png 533w, https://officeguide.cc/wp-content/uploads/2019/09/python-connect-mysql-mariadb-database-tutorial-examples-20191024-01-300x78.png 300w" sizes="(max-width: 533px) 100vw, 533px"></a><figcaption id="caption-attachment-7434" class="wp-caption-text">安裝 Python 的 MySQL Connector 模組</figcaption></figure>
+<p>安裝好之後，就可以開始使用了 Python 的 MySQL Connector 模組。</p>
+<h2>連接資料庫</h2>
+<p>以下是使用 MySQL Connector 模組連接資料庫的範例：</p>
+<pre class="code"><span class="PreProc">import</span> mysql.connector
+<span class="PreProc">from</span> mysql.connector <span class="PreProc">import</span> Error
+
+<span class="Statement">try</span>:
+    <span class="Comment"># 連接 MySQL/MariaDB 資料庫</span>
+    connection = mysql.connector.connect(
+        host=<span class="Constant">'</span><span class="Constant">localhost</span><span class="Constant">'</span>,          <span class="Comment"># 主機名稱</span>
+        database=<span class="Constant">'</span><span class="Constant">officeguide_db</span><span class="Constant">'</span>, <span class="Comment"># 資料庫名稱</span>
+        user=<span class="Constant">'</span><span class="Constant">officeguide</span><span class="Constant">'</span>,        <span class="Comment"># 帳號</span>
+        password=<span class="Constant">'</span><span class="Constant">your_password</span><span class="Constant">'</span>)  <span class="Comment"># 密碼</span>
+
+    <span class="Statement">if</span> connection.is_connected():
+
+        <span class="Comment"># 顯示資料庫版本</span>
+        db_Info = connection.get_server_info()
+        <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫版本：</span><span class="Constant">"</span>, db_Info)
+
+        <span class="Comment"># 顯示目前使用的資料庫</span>
+        cursor = connection.cursor()
+        cursor.execute(<span class="Constant">"</span><span class="Constant">SELECT DATABASE();</span><span class="Constant">"</span>)
+        record = cursor.fetchone()
+        <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">目前使用的資料庫：</span><span class="Constant">"</span>, record)
+
+<span class="Statement">except</span> Error <span class="Statement">as</span> e:
+    <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連接失敗：</span><span class="Constant">"</span>, e)
+
+<span class="Statement">finally</span>:
+    <span class="Statement">if</span> (connection.is_connected()):
+        cursor.close()
+        connection.close()
+        <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連線已關閉</span><span class="Constant">"</span>)</pre>
+<pre class="output">資料庫版本： 5.5.5-10.4.8-MariaDB
+目前使用的資料庫： ('officeguide_db',)
+資料庫連線已關閉</pre>
+<div style="margin: 25px 0 25px 0;">
+<ins class="adsbygoogle" style="display: block; text-align: center; height: 176px;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5624032307910838" data-ad-slot="4042983375" data-full-width-responsive="false" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:176px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"><ins id="aswift_2_anchor" style="display:block;border:none;height:176px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"><iframe id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;border:0;width:702px;height:176px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="702" height="176" frameborder="0" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/ads(1).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!2" data-google-query-id="CKCs092g-ekCFQezlgodLJYFYA" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><h2>查詢資料</h2>
+<p>以下是使用 <code>SELECT</code> 查詢資料的範例：</p>
+<pre class="code"><span class="PreProc">import</span> mysql.connector
+<span class="PreProc">from</span> mysql.connector <span class="PreProc">import</span> Error
+
+<span class="Statement">try</span>:
+    <span class="Comment"># 連接 MySQL/MariaDB 資料庫</span>
+    connection = mysql.connector.connect(
+        host=<span class="Constant">'</span><span class="Constant">localhost</span><span class="Constant">'</span>,          <span class="Comment"># 主機名稱</span>
+        database=<span class="Constant">'</span><span class="Constant">officeguide_db</span><span class="Constant">'</span>, <span class="Comment"># 資料庫名稱</span>
+        user=<span class="Constant">'</span><span class="Constant">officeguide</span><span class="Constant">'</span>,        <span class="Comment"># 帳號</span>
+        password=<span class="Constant">'</span><span class="Constant">your_password</span><span class="Constant">'</span>)  <span class="Comment"># 密碼</span>
+
+    <span class="Comment"># 查詢資料庫</span>
+    cursor = connection.cursor()
+    cursor.execute(<span class="Constant">"</span><span class="Constant">SELECT name, age FROM persons;</span><span class="Constant">"</span>)
+
+    <span class="Comment"># 列出查詢的資料</span>
+    <span class="Statement">for</span> (name, age) <span class="Statement">in</span> cursor:
+        <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">Name: %s, Age: %d</span><span class="Constant">"</span> % (name, age))
+
+
+<span class="Statement">except</span> Error <span class="Statement">as</span> e:
+    <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連接失敗：</span><span class="Constant">"</span>, e)
+
+<span class="Statement">finally</span>:
+    <span class="Statement">if</span> (connection.is_connected()):
+        cursor.close()
+        connection.close()
+        <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連線已關閉</span><span class="Constant">"</span>)</pre>
+<pre class="output">Name: Arden, Age: 32
+Name: Bond, Age: 54
+Name: Cole, Age: 12
+Name: Dana, Age: 19
+資料庫連線已關閉</pre>
+<p>也可以使用 <code>fetchall</code> 將資料一次全部抓到 Python 中再處理：</p>
+<pre class="code"><span class="PreProc">import</span> mysql.connector
+<span class="PreProc">from</span> mysql.connector <span class="PreProc">import</span> Error
+
+<span class="Statement">try</span>:
+    <span class="Comment"># 連接 MySQL/MariaDB 資料庫</span>
+    connection = mysql.connector.connect(
+        host=<span class="Constant">'</span><span class="Constant">localhost</span><span class="Constant">'</span>,          <span class="Comment"># 主機名稱</span>
+        database=<span class="Constant">'</span><span class="Constant">officeguide_db</span><span class="Constant">'</span>, <span class="Comment"># 資料庫名稱</span>
+        user=<span class="Constant">'</span><span class="Constant">officeguide</span><span class="Constant">'</span>,        <span class="Comment"># 帳號</span>
+        password=<span class="Constant">'</span><span class="Constant">your_password</span><span class="Constant">'</span>)  <span class="Comment"># 密碼</span>
+
+    <span class="Comment"># 查詢資料庫</span>
+    cursor = connection.cursor()
+    cursor.execute(<span class="Constant">"</span><span class="Constant">SELECT name, age FROM persons;</span><span class="Constant">"</span>)
+
+    <span class="Comment"># 取回全部的資料</span>
+    records = cursor.fetchall()
+    <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料筆數：</span><span class="Constant">"</span>, cursor.rowcount)
+
+    <span class="Comment"># 列出查詢的資料</span>
+    <span class="Statement">for</span> (name, age) <span class="Statement">in</span> records:
+        <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">Name: %s, Age: %d</span><span class="Constant">"</span> % (name, age))
+
+<span class="Statement">except</span> Error <span class="Statement">as</span> e:
+    <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連接失敗：</span><span class="Constant">"</span>, e)
+
+<span class="Statement">finally</span>:
+    <span class="Statement">if</span> (connection.is_connected()):
+        cursor.close()
+        connection.close()
+        <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連線已關閉</span><span class="Constant">"</span>)</pre>
+<pre class="output">資料筆數： 4
+Name: Arden, Age: 32
+Name: Bond, Age: 54
+Name: Cole, Age: 12
+Name: Dana, Age: 19
+資料庫連線已關閉</pre>
+<div style="margin: 25px 0 25px 0;">
+<ins class="adsbygoogle" style="display: block; text-align: center; height: 176px;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5624032307910838" data-ad-slot="4042983375" data-full-width-responsive="false" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:176px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"><ins id="aswift_3_anchor" style="display:block;border:none;height:176px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"><iframe id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;border:0;width:702px;height:176px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="702" height="176" frameborder="0" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/ads(2).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!3" data-google-query-id="CI3i3oqj-ekCFQ1mlgodH7wChA" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><h2>新增資料</h2>
+<p>以下是使用 <code>INSERT</code> 新增資料的範例：</p>
+<pre class="code"><span class="PreProc">import</span> mysql.connector
+<span class="PreProc">from</span> mysql.connector <span class="PreProc">import</span> Error
+
+<span class="Statement">try</span>:
+    <span class="Comment"># 連接 MySQL/MariaDB 資料庫</span>
+    connection = mysql.connector.connect(
+        host=<span class="Constant">'</span><span class="Constant">localhost</span><span class="Constant">'</span>,          <span class="Comment"># 主機名稱</span>
+        database=<span class="Constant">'</span><span class="Constant">officeguide_db</span><span class="Constant">'</span>, <span class="Comment"># 資料庫名稱</span>
+        user=<span class="Constant">'</span><span class="Constant">officeguide</span><span class="Constant">'</span>,        <span class="Comment"># 帳號</span>
+        password=<span class="Constant">'</span><span class="Constant">your_password</span><span class="Constant">'</span>)  <span class="Comment"># 密碼</span>
+
+    <span class="Comment"># 新增資料</span>
+    sql = <span class="Constant">"</span><span class="Constant">INSERT INTO persons (name, age, city) VALUES (%s, %s, %s);</span><span class="Constant">"</span>
+    new_data = (<span class="Constant">"</span><span class="Constant">Jack</span><span class="Constant">"</span>, <span class="Constant">13</span>, <span class="Constant">"</span><span class="Constant">Kaohsiung</span><span class="Constant">"</span>)
+    cursor = connection.cursor()
+    cursor.execute(sql, new_data)
+
+    <span class="Comment"># 確認資料有存入資料庫</span>
+    connection.commit()
+
+<span class="Statement">except</span> Error <span class="Statement">as</span> e:
+    <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連接失敗：</span><span class="Constant">"</span>, e)
+
+<span class="Statement">finally</span>:
+    <span class="Statement">if</span> (connection.is_connected()):
+        cursor.close()
+        connection.close()</pre>
+<div style="margin: 25px 0 25px 0;">
+<ins class="adsbygoogle" style="display: block; text-align: center; height: 176px;" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5624032307910838" data-ad-slot="4042983375" data-full-width-responsive="false" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:176px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"><ins id="aswift_4_anchor" style="display:block;border:none;height:176px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><h2>修改資料</h2>
+<p>以下是使用 <code>UPDATE</code> 更新資料的範例：</p>
+<pre class="code"><span class="PreProc">import</span> mysql.connector
+<span class="PreProc">from</span> mysql.connector <span class="PreProc">import</span> Error
+
+<span class="Statement">try</span>:
+    <span class="Comment"># 連接 MySQL/MariaDB 資料庫</span>
+    connection = mysql.connector.connect(
+        host=<span class="Constant">'</span><span class="Constant">localhost</span><span class="Constant">'</span>,          <span class="Comment"># 主機名稱</span>
+        database=<span class="Constant">'</span><span class="Constant">officeguide_db</span><span class="Constant">'</span>, <span class="Comment"># 資料庫名稱</span>
+        user=<span class="Constant">'</span><span class="Constant">officeguide</span><span class="Constant">'</span>,        <span class="Comment"># 帳號</span>
+        password=<span class="Constant">'</span><span class="Constant">your_password</span><span class="Constant">'</span>)  <span class="Comment"># 密碼</span>
+
+    <span class="Comment"># 更新資料</span>
+    sql = <span class="Constant">"</span><span class="Constant">UPDATE persons SET age = %s WHERE id = %s;</span><span class="Constant">"</span>
+    cursor = connection.cursor()
+    cursor.execute(sql, (<span class="Constant">27</span>, <span class="Constant">6</span>))
+
+    <span class="Comment"># 確認資料有存入資料庫</span>
+    connection.commit()
+
+<span class="Statement">except</span> Error <span class="Statement">as</span> e:
+    <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連接失敗：</span><span class="Constant">"</span>, e)
+
+<span class="Statement">finally</span>:
+    <span class="Statement">if</span> (connection.is_connected()):
+        cursor.close()
+        connection.close()</pre>
+<h2>刪除資料</h2>
+<p>以下是使用 <code>DELETE</code> 刪除資料的範例：</p>
+<pre class="code"><span class="PreProc">import</span> mysql.connector
+<span class="PreProc">from</span> mysql.connector <span class="PreProc">import</span> Error
+
+<span class="Statement">try</span>:
+    <span class="Comment"># 連接 MySQL/MariaDB 資料庫</span>
+    connection = mysql.connector.connect(
+        host=<span class="Constant">'</span><span class="Constant">localhost</span><span class="Constant">'</span>,          <span class="Comment"># 主機名稱</span>
+        database=<span class="Constant">'</span><span class="Constant">officeguide_db</span><span class="Constant">'</span>, <span class="Comment"># 資料庫名稱</span>
+        user=<span class="Constant">'</span><span class="Constant">officeguide</span><span class="Constant">'</span>,        <span class="Comment"># 帳號</span>
+        password=<span class="Constant">'</span><span class="Constant">your_password</span><span class="Constant">'</span>)  <span class="Comment"># 密碼</span>
+
+    <span class="Comment"># 更新資料</span>
+    sql = <span class="Constant">"</span><span class="Constant">DELETE FROM persons WHERE id = %s;</span><span class="Constant">"</span>
+    cursor = connection.cursor()
+    cursor.execute(sql, (<span class="Constant">6</span>,))
+
+    <span class="Comment"># 確認資料有存入資料庫</span>
+    connection.commit()
+
+<span class="Statement">except</span> Error <span class="Statement">as</span> e:
+    <span class="Identifier">print</span>(<span class="Constant">"</span><span class="Constant">資料庫連接失敗：</span><span class="Constant">"</span>, e)
+
+<span class="Statement">finally</span>:
+    <span class="Statement">if</span> (connection.is_connected()):
+        cursor.close()
+        connection.close()</pre>
+<p>參考資料：<a href="https://dev.mysql.com/doc/connector-python/en/">MySQL 官方文件</a>、<a href="https://pynative.com/python-mysql-tutorial/">pynative</a></p>
+<!--<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+			xmlns:dc="http://purl.org/dc/elements/1.1/"
+			xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+		<rdf:Description rdf:about="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/"
+    dc:identifier="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/"
+    dc:title="Python 使用 MySQL Connector 操作 MySQL/MariaDB 資料庫教學與範例"
+    trackback:ping="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/trackback/" />
+</rdf:RDF>-->
+</div><footer class="entry-footer"><p class="entry-meta"><span class="entry-categories">分類：<a href="https://officeguide.cc/category/python/" rel="category tag">Python</a>, <a href="https://officeguide.cc/category/database/" rel="category tag">資料庫</a></span> <span class="entry-tags">標籤：<a href="https://officeguide.cc/tag/mysql-mariadb/" rel="tag">MySQL/MariaDB</a></span></p></footer></article><div class="after-entry widget-area"><section id="custom_html-2" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><div style="margin-bottom: 40px;">
+<!-- OfficeGuide 文章底部連結回應式 -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-5624032307910838" data-ad-slot="3726257093" data-ad-format="link" data-full-width-responsive="true" data-adsbygoogle-status="done"><ins id="aswift_5_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"><ins id="aswift_5_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+<div>
+<ins class="adsbygoogle" style="display: block; height: 421px;" data-ad-format="autorelaxed" data-ad-client="ca-pub-5624032307910838" data-ad-slot="6011493018" data-adsbygoogle-status="done"><ins id="aswift_6_expand" style="display:inline-table;border:none;height:421px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"><ins id="aswift_6_anchor" style="display:block;border:none;height:421px;margin:0;padding:0;position:relative;visibility:visible;width:702px;background-color:transparent;"></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div></div></section>
+</div><h2 class="screen-reader-text">讀者互動</h2>	<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/#respond" style="display:none;">取消回覆</a></small></h3><form action="https://officeguide.cc/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span> 必填欄位標示為 <span class="required">*</span></p><p class="comment-form-comment"><label for="comment">留言</label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea></p><p class="comment-form-author"><label for="author">顯示名稱 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" required="required"></p>
+<p class="comment-form-email"><label for="email">電子郵件地址 <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" required="required"></p>
+<p class="comment-form-url"><label for="url">個人網站網址</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200"></p>
+<span class="cerber-form-marker"></span><div class="g-recaptcha" data-sitekey="6Lcs7HYUAAAAACqVnbEctIl3y6x66j6ulvPNqZW_" data-callback="form_button_enabler" id="cerber-recaptcha"><div style="width: 304px; height: 78px;"><div><iframe src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/anchor.html" width="304" height="78" role="presentation" name="a-qg2uskf5cz87" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/saved_resource(4).html"></iframe></div><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="發佈留言" disabled="" style="opacity: 0.5;"> <input type="hidden" name="comment_post_ID" value="6728" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+	</main><aside class="sidebar sidebar-primary widget-area" role="complementary" aria-label="Primary Sidebar" id="genesis-sidebar-primary" style="height: auto !important;"><h2 class="genesis-sidebar-title screen-reader-text">Primary Sidebar</h2><section id="custom_html-3" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><!-- OfficeGuide 側邊回應式（一） -->
+<ins class="adsbygoogle" style="display: block; height: 250px;" data-ad-client="ca-pub-5624032307910838" data-ad-slot="1905801160" data-ad-format="rectangle" data-full-width-responsive="true" data-adsbygoogle-status="done"><ins id="aswift_7_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:324px;background-color:transparent;"><ins id="aswift_7_anchor" style="display: block; border: none; height: 250px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 324px; background-color: transparent; overflow: visible;"><iframe id="aswift_7" name="aswift_7" style="left:0;position:absolute;top:0;border:0;width:324px;height:250px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="324" height="250" frameborder="0" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/ads(3).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!7" data-google-query-id="CPD8vMGg-ekCFQ0IlgodWrQPpg" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div></section>
+<section id="custom_html-8" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><h3 class="widgettitle widget-title">搜尋</h3>
+<div class="textwidget custom-html-widget"><script>
+  (function() {
+    var cx = '017825434518428976952:ios02rhz6w8';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-zh-TW" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 gsc-input" style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="搜尋" id="gsc-i-id1" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; background: url(&quot;https://www.google.com/cse/static/images/1x/zh_TW/branding.png&quot;) left center no-repeat rgb(255, 255, 255); outline: none;" dir="ltr" spellcheck="false"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;" title="清除搜尋框" role="button"><span class="gscb_a" id="gs_cb50" aria-hidden="true">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><button class="gsc-search-button gsc-search-button-v2"><svg width="13" height="13" viewBox="0 0 13 13"><title>搜尋</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg></button></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="清除結果">&nbsp;</div></td></tr></tbody></table></form></div></div></div></div></section>
+		<section id="recent-posts-2" class="widget widget_recent_entries"><div class="widget-wrap">		<h3 class="widgettitle widget-title">近期文章</h3>
+		<ul>
+											<li>
+					<a href="https://officeguide.cc/r-split-data-frame-string-column-into-multiple-columns-tutorial-examples/">R 將 Data Frame 一欄文字分割成多欄位教學與範例</a>
+									</li>
+											<li>
+					<a href="https://officeguide.cc/postfix-mail-server-tls-encryption-configuration-tutorial/">Postfix Mail Server 郵件伺服器 TLS 加密設定教學</a>
+									</li>
+											<li>
+					<a href="https://officeguide.cc/postfix-mail-queue-management-commands-tutorial-examples/">Postfix 伺服器郵件佇列管理指令整理教學與範例</a>
+									</li>
+											<li>
+					<a href="https://officeguide.cc/c-libtiff-library-read-tiff-image-metadata-tutorial-examples/">C 語言 TIFF 函式庫讀取 TIFF 影像與後設資料教學與範例</a>
+									</li>
+											<li>
+					<a href="https://officeguide.cc/php-using-utf-8-characters-on-email-subject-tutorial-examples/">PHP 寄送 Email 標題使用 UTF-8 編碼顯示中文教學與範例</a>
+									</li>
+					</ul>
+		</div></section>
+<section id="custom_html-4" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><!-- OfficeGuide 側邊連結回應式（一） -->
+<ins class="adsbygoogle" style="display: block; height: 250px;" data-ad-client="ca-pub-5624032307910838" data-ad-slot="1128013910" data-ad-format="link" data-full-width-responsive="true" data-adsbygoogle-status="done"><ins id="aswift_8_expand" style="display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:324px;background-color:transparent;"><ins id="aswift_8_anchor" style="display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:324px;background-color:transparent;"><iframe id="aswift_8" name="aswift_8" style="left:0;position:absolute;top:0;border:0;width:324px;height:250px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="324" height="250" frameborder="0" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/ads(4).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!8" data-load-complete="true" data-google-query-id="CKma1N2g-ekCFbG_lgodEw4I1Q"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div></section>
+<section id="custom_html-5" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><div class="textwidget custom-html-widget"><!-- OfficeGuide 側邊回應式（二） -->
+<ins class="adsbygoogle" style="display: block; height: 600px;" data-ad-client="ca-pub-5624032307910838" data-ad-slot="8351897817" data-ad-format="vertical" data-full-width-responsive="true" data-adsbygoogle-status="done"><ins id="aswift_9_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent;"><ins id="aswift_9_anchor" style="display: block; border: none; height: 600px; margin: 0px; padding: 0px; position: relative; visibility: visible; width: 300px; background-color: transparent; overflow: visible;"><iframe id="aswift_9" name="aswift_9" style="left:0;position:absolute;top:0;border:0;width:300px;height:600px;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="300" height="600" frameborder="0" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/ads(5).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!9" data-google-query-id="CKro1N2g-ekCFRIilgode0wK8Q" data-load-complete="true"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></div></section>
+<section id="custom_html-6" class="widget_text widget widget_custom_html"><div class="widget_text widget-wrap"><h3 class="widgettitle widget-title">推薦網站</h3>
+<div class="textwidget custom-html-widget"><ul>
+	<li><a href="https://officeguide.cc/recommends/udemy/">Udemy 線上教學課程</a></li>
+	<li><a href="https://officeguide.cc/recommends/coursera/">Coursera 線上教學課程</a></li>
+</ul></div></div></section>
+<section id="simple-social-icons-2" class="widget simple-social-icons"><div class="widget-wrap"><h3 class="widgettitle widget-title">關注本站</h3>
+<ul class="alignleft"><li class="ssi-email"><a href="mailto:officeguide.cc@gmail.com"><svg role="img" class="social-email" aria-labelledby="social-email-2"><title id="social-email-2">電子郵件</title><use xlink:href="https://officeguide.cc/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-email"></use></svg></a></li><li class="ssi-facebook"><a href="https://www.facebook.com/officeguide.cc/"><svg role="img" class="social-facebook" aria-labelledby="social-facebook-2"><title id="social-facebook-2">Facebook</title><use xlink:href="https://officeguide.cc/wp-content/plugins/simple-social-icons/symbol-defs.svg#social-facebook"></use></svg></a></li></ul></div></section>
+</aside></div></div><footer class="site-footer" itemscope="" itemtype="https://schema.org/WPFooter"><div class="wrap"><p>Copyright ©&nbsp;2018 · <a href="https://officeguide.cc/">Office Guide</a></p></div></footer>
+</div><style type="text/css" media="screen"> #simple-social-icons-2 ul li a, #simple-social-icons-2 ul li a:hover, #simple-social-icons-2 ul li a:focus { background-color: #f5f5f5 !important; border-radius: 3px; color: #333333 !important; border: 0px #ffffff solid !important; font-size: 20px; padding: 10px; }  #simple-social-icons-2 ul li a:hover, #simple-social-icons-2 ul li a:focus { background-color: #333333 !important; border-color: #ffffff !important; color: #ffffff !important; }  #simple-social-icons-2 ul li a:focus { outline: 1px dotted #333333 !important; }</style><script type="text/javascript">
+/* <![CDATA[ */
+var eafl_public = {"home_url":"https:\/\/officeguide.cc\/","ajax_url":"https:\/\/officeguide.cc\/wp-admin\/admin-ajax.php","nonce":"4df23cc3ff"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/public.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/comment-reply.min.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/hoverIntent.min.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/superfish.min.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/superfish.args.min.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/skip-links.min.js.下載"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var genesis_responsive_menu = {"mainMenu":"\u9078\u55ae","menuIconClass":"dashicons-before dashicons-menu","subMenu":"\u5b50\u9078\u55ae","subMenuIconClass":"dashicons-before dashicons-arrow-down-alt2","menuClasses":{"combine":[".nav-primary"],"others":[]}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/responsive-menus.min.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/genesis-sample.js.下載"></script>
+<script type="text/javascript" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/wp-embed.min.js.下載"></script>
+	<script type="text/javascript">
+
+        jQuery(document).ready(function ($) {
+
+            var recaptcha_ok = false;
+            var the_recaptcha_widget = $("#cerber-recaptcha");
+            var is_recaptcha_visible = ($(the_recaptcha_widget).data('size') !== 'invisible');
+
+            var the_form = $(the_recaptcha_widget).closest("form");
+            var the_button = $(the_form).find('input[type="submit"]');
+            if (!the_button.length) {
+                the_button = $(the_form).find(':button');
+            }
+
+            // visible
+            if (the_button.length && is_recaptcha_visible) {
+                the_button.prop("disabled", true);
+                the_button.css("opacity", 0.5);
+            }
+
+            window.form_button_enabler = function () {
+                if (!the_button.length) return;
+                the_button.prop("disabled", false);
+                the_button.css( "opacity", 1 );
+            };
+
+            // invisible
+            if (!is_recaptcha_visible) {
+                $(the_button).click(function (event) {
+                    if (recaptcha_ok) return;
+                    event.preventDefault();
+                    grecaptcha.execute();
+                });
+            }
+
+            window.now_submit_the_form = function () {
+                recaptcha_ok = true;
+                $(the_button).click(); // this is only way to submit a form that contains "submit" inputs
+            };
+        });
+	</script>
+	<script src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/api.js.下載" async="" defer=""></script>
+	
+<!-- *´¨)
+     ¸.•´¸.•*´¨) ¸.•*¨)
+     (¸.•´ (¸.•` ¤ Comet Cache is Fully Functional ¤ ´¨) -->
+
+<!-- Cache File Version Salt:       n/a -->
+
+<!-- Cache File URL:                https://officeguide.cc/python-mysql-mariadb-database-connector-tutorial-examples/ -->
+<!-- Cache File Path:               /cache/comet-cache/cache/https/officeguide-cc/python-mysql-mariadb-database-connector-tutorial-examples.html -->
+
+<!-- Cache File Generated Via:      HTTP request -->
+<!-- Cache File Generated On:       Jun 11th, 2020 @ 4:05 am UTC -->
+<!-- Cache File Generated In:       0.53969 seconds -->
+
+<!-- Cache File Expires On:         Jun 18th, 2020 @ 4:05 am UTC -->
+<!-- Cache File Auto-Rebuild On:    Jun 18th, 2020 @ 4:05 am UTC -->
+
+<!-- Loaded via Cache On:    Jun 11th, 2020 @ 6:06 am UTC -->
+<!-- Loaded via Cache In:    0.00945 seconds --><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;" sandbox="allow-forms allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/ads(6).html" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" data-google-container-id="a!0" data-load-complete="true"></iframe></ins></ins></ins><iframe id="google_osd_static_frame_4437425942398" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/saved_resource(5).html"></iframe><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 241px; display: none; top: 497px; position: absolute; left: 1008px;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div style="background-color: rgb(255, 255, 255); border: 1px solid rgb(204, 204, 204); box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 3px; position: absolute; transition: visibility 0s linear 0.3s, opacity 0.3s linear 0s; opacity: 0; visibility: hidden; z-index: 2000000000; left: 0px; top: -10000px;"><div style="width: 100%; height: 100%; position: fixed; top: 0px; left: 0px; z-index: 2000000000; background-color: rgb(255, 255, 255); opacity: 0.05;"></div><div class="g-recaptcha-bubble-arrow" style="border: 11px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -11px; z-index: 2000000000;"></div><div class="g-recaptcha-bubble-arrow" style="border: 10px solid transparent; width: 0px; height: 0px; position: absolute; pointer-events: none; margin-top: -10px; z-index: 2000000000;"></div><div style="z-index: 2000000000; position: relative;"><iframe title="recaptcha challenge" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/bframe.html" name="c-qg2uskf5cz87" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox" style="width: 100%; height: 100%;"></iframe></div></div></body><iframe id="google_esf" name="google_esf" src="./Python 使用 MySQL Connector 操作 MySQL_MariaDB 資料庫教學與範例 - Office 指南_files/zrt_lookup.html" data-ad-client="ca-pub-5624032307910838" style="display: none;"></iframe></html>

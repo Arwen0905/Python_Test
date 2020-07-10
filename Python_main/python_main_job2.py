@@ -279,7 +279,7 @@ with open(file3_108,encoding="utf-8") as f:
     df1_row = ["男生","女生"]
     df1 = pd.DataFrame([df1_male,df1_female] ,columns=df1_col, index=df1_row).T
     print(df1)
-    # df1.subplot(1,2,1)
+
     df1.plot(kind="line",color=["#3498DB","#EC7063"],figsize=[10,6],
               fontsize=18,linewidth=4,subplots=(1,2,1))
     df1.plot(kind="bar",color=["#3498DB","#EC7063"],figsize=[10,6],

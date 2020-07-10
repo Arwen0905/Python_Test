@@ -1,0 +1,8 @@
+https://www.coderbridge.com/@Eterna-E/e1755ac2099b430291ffb7a8b61f169e
+https://www.runoob.com/python/python-gui-tkinter.html
+https://docs.python.org/3/library/tkinter.html
+https://www.tutorialspoint.com/python3/tk_messagebox.htm
+https://www.itread01.com/content/1547705544.html
+
+****************************************************************
+https://www.javatpoint.com/python-tkinter-radiobutton
