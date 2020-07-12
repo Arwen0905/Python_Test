@@ -1,0 +1,14 @@
+創建line Developers帳號
+heroku loging
+登錄以後
+可以先查詢自己git環境有沒有登錄好 使用者名稱及信箱
+在cmd環境下 輸入:
+git config --global user.name  (這可以查到名稱)
+git config --global user.email (這可以查到信箱)
+如果沒有註冊資訊，請在上述指令末端 空一格後輸入(註冊可上網查找)
+
+上述OK的情況，輸入初始化指令
+git init
+
+
+heroku git:remote -a 
