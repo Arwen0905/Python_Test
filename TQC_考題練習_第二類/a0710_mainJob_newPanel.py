@@ -13,42 +13,42 @@ lst_file=[]
 #!! 首次運行，程式會收集url的csv檔，如已爬取csv檔，可將 13行 至 52行 之間註解，方便後段測試。
 #!! 程式碼第 107行 及 108行，為圖表的"年份"設定，例: 102 就是顯示102年的資料。
 
-# url = 'https://data.gov.tw/dataset/27396' #網址設定
-# rq = requests.get(url) #取得網址
-# soup = BeautifulSoup(rq.text,"html.parser") #解析html網址內容
-# # print(soup.prettify()) #html檢視用
+url = 'https://data.gov.tw/dataset/27396' #網址設定
+rq = requests.get(url) #取得網址
+soup = BeautifulSoup(rq.text,"html.parser") #解析html網址內容
+# print(soup.prettify()) #html檢視用
 
-# name_q= soup.find_all("div",class_=("field-items")) #定位:爬取檔名
+name_q= soup.find_all("div",class_=("field-items")) #定位:爬取檔名
 
-# for i in name_q: #捕捉檔名
-#     s = i.text
-#     res = re.findall('\d{2}\d?[年]\w*',s) #正規表示法 (條件:3個數字+年的字串)
-#     if res == [s]: #比對是否符合 例:102年
-#         lst_file.append(res[0])
-#         print(res,"檔名捕捉!")
-# print("\n檔案名稱串列:\n",lst_file)
+for i in name_q: #捕捉檔名
+    s = i.text
+    res = re.findall('\d{2}\d?[年]\w*',s) #正規表示法 (條件:3個數字+年的字串)
+    if res == [s]: #比對是否符合 例:102年
+        lst_file.append(res[0])
+        print(res,"檔名捕捉!")
+print("\n檔案名稱串列:\n",lst_file)
 
 
-# rs = soup.find_all("a",{"title":"下載格式為 CSV"}) #定位:爬取載點
+rs = soup.find_all("a",{"title":"下載格式為 CSV"}) #定位:爬取載點
 
-# if not os.path.isdir("./output"):
-#     os.mkdir("./output") #如果沒有目錄，就新建output資料夾
+if not os.path.isdir("./output"):
+    os.mkdir("./output") #如果沒有目錄，就新建output資料夾
 
-# count=0
-# for index,i in enumerate(rs):
-#     try:
-#         csv_url = i.get("href")
-#         # if count < len(lst_file):
-#         if index%2==0:
-#             urlretrieve(csv_url,f'./output/{lst_file[count]}.csv') #存CSV檔
-#             count+=1
-#             print(i.get("href"),"正在處理.....")
-#         else:
-#             # urlretrieve(csv_url,f'./output/重複檔案{count}.csv') #存重複檔
-#             print(i.get("href"),"正在排除.....")
-#         print(lst_file[count],"儲存完畢!")
-#     except:
-#         print('資料來源有誤，跳過!')
+count=0
+for index,i in enumerate(rs):
+    try:
+        csv_url = i.get("href")
+        # if count < len(lst_file):
+        if index%2==0:
+            urlretrieve(csv_url,f'./output/{lst_file[count]}.csv') #存CSV檔
+            count+=1
+            print(i.get("href"),"正在處理.....")
+        else:
+            # urlretrieve(csv_url,f'./output/重複檔案{count}.csv') #存重複檔
+            print(i.get("href"),"正在排除.....")
+        print(lst_file[count],"儲存完畢!")
+    except:
+        print('資料來源有誤，跳過!')
         
 # ====================================================================================
 
@@ -104,7 +104,7 @@ gp1 = res.groupby("年份")
 gp2 = res.groupby("年份")
 
 # 年份設定 (102~108) !========================================================!
-gp1_name = "107"
+gp1_name = "102"
 gp2_name = "108"
 # 結束設定 !==================================================================!
 
