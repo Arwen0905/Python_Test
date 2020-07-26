@@ -4,11 +4,11 @@ import xml.etree.ElementTree as ET
 import csv
 
 # 讀取 xml
-tree = ET.ElementTree(file="read.xml")
+tree = ET.parse("read_102.xml")
 root = tree.getroot()
 
 # 寫入 csv 檔案，編碼設定為 utf8
-ubikefile = open("write.csv","w",encoding='utf-8')
+ubikefile = open("wirte_102.csv", "w+", encoding='utf-8')
 csvwriter = csv.writer(ubikefile)
 
 # 將其中 sno（站點代號）、sna（中文場站名稱）、tot（場站總停車格）等三個欄位寫出
@@ -22,3 +22,4 @@ for row in root:
     ubike.append(tot)
     csvwriter.writerow(ubike)
 ubikefile.close()
+    
