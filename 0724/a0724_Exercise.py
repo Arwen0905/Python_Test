@@ -4,8 +4,9 @@ url = "https://hk.appledaily.com/realtime/index"
 re = requests.get(url)
 re.encoding = "utf-8"
 soup = BeautifulSoup(re.text, "html.parser")
-rs = soup.select('div.LHSContent_inner.NoTab > div.item > div.text > a')
+# rs = soup.select('div.LHSContent_inner.NoTab > div.item > div.text > a')
 # rs = soup.select('div.LHSContent_inner.NoTab > div.item.Top3 > div.text a')
+rs = soup.select('[style="padding:10px; width:540px; min-height: 0"] a')
 
 # for v,i in enumerate(rs):
 #     if v < 3:
