@@ -10,6 +10,7 @@ rel=twstock.realtime.get('2012')
 if rel['success']:
     print('股票即時資料')
     print(rel)
+    
 else:
     print('錯誤:'+rel['rtmessage'])
 

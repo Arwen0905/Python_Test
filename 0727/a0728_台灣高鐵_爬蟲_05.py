@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup as soup
 
 url = "https://www.twse.com.tw/exchangeReport/STOCK_DAY?response=json&date=20190101&stockNo=2633&_=1595925201119"
 # url = "https://rate.bot.com.tw/xrt/all/2020-01-06"
-# def convertDate(data):
-#     str1 = str(data)
+# def convertDate(date):
+#     str1 = str(date)
 #     yearst = str1[:3] #取出民國年
 #     ryear = str(int(yearst)+1911) #轉為西元年
 #     findata = ryear + str1[4:6] + str1[7:9]
