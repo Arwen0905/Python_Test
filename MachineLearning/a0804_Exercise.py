@@ -54,7 +54,8 @@ print(pd.crosstab(y, preds)) # 混淆矩陣
 print("#2 準確率:")
 print(logistict.score(X2, y)) # 準確率
 
-print("\n上述結論:採用了準確率(前5高標籤)，結果僅次原始資料(30個標籤) 0.01406 %")
+print("\n上述結論:採用了準確率(前5高標籤)，結果僅差距原始資料(30個標籤) 0.01406 %")
+print(f"下列為 準確率(前5高標籤):\n{X_tag.values}")
 print("="*70)
 # =========================================================================================
 
@@ -72,7 +73,7 @@ print(logistict.score(XTest,yTest))
 print("="*70)
 # =========================================================================================
 
-print("\n【查找 test_size 模型正確率最高/最低的值】")
+print("\n【查找 test_size 正確率最高/最低的值】")
 max_n = 0
 min_n = 1
 max_i = 0
@@ -86,13 +87,14 @@ for i in range(1,100):
     logistict.fit(XTrain,yTrain)
     
     ans = logistict.score(XTest,yTest)
-    if 1 > ans > max_n:
+    if ans >= max_n:
         max_n = ans
         max_i = temp_i
-    if 0 < ans < min_n:
+        # print(f"最高準確率:{max_n}, 切割比例:{temp_i} << 檢查")
+    elif ans < min_n:
         min_n = ans
         min_i = temp_i
-        
+    
 print("#4 準確率:")
 print("最高準確率為:%.4f，其test_size值為:%.2f" %(max_n,max_i))
 print("最低準確率為:%.4f，其test_size值為:%.2f" %(min_n,min_i))
