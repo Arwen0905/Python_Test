@@ -23,7 +23,7 @@ print(pd.crosstab(y, preds))
 print("#1 準確率")
 print(logistict.score(X, y))
 
-print("="*70)
+print("="*50)
 # =========================================================================================
 
 print("\n【準確率(前5高標籤)】")
@@ -56,7 +56,7 @@ print(logistict.score(X2, y)) # 準確率
 
 print("\n上述結論:採用了準確率(前5高標籤)，結果僅差距原始資料(30個標籤) 0.01406 %")
 print(f"下列為 準確率(前5高標籤):\n{X_tag.values}")
-print("="*70)
+print("="*50)
 # =========================================================================================
 
 print("\n【將全部資料分割，比率分別為 7:3】")
@@ -70,7 +70,7 @@ print(pd.crosstab(yTest, preds))
 print("#3 準確率:")
 print(logistict.score(XTest,yTest))
 
-print("="*70)
+print("="*50)
 # =========================================================================================
 
 print("\n【查找 test_size 正確率最高/最低的值】")
@@ -90,7 +90,6 @@ for i in range(1,100):
     if ans >= max_n:
         max_n = ans
         max_i = temp_i
-        # print(f"最高準確率:{max_n}, 切割比例:{temp_i} << 檢查")
     elif ans < min_n:
         min_n = ans
         min_i = temp_i
